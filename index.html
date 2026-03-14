@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FF6B00">
+<title>Manu Cyber Cafe - Garhani, Bihar</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--sf:#FF6B00;--gd:#FFB300;--nv:#0D1B2A;--nv2:#1A2E44;--tl:#00B4D8;--gr:#22C55E;--rd:#EF4444;--bg:#F5F7FA;--bg2:#fff;--tx:#2D3748;--mu:#718096;--cd:#fff;--bd:#E2E8F0;--sh:0 4px 24px rgba(0,0,0,0.09);--r:16px;--fs:16px}
+[data-theme=dark]{--bg:#0F1923;--bg2:#162130;--tx:#E2E8F0;--mu:#7B8FA6;--cd:#1A2A3A;--bd:rgba(255,255,255,0.09)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hind',sans-serif;font-size:var(--fs);background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background .3s,color .3s}
+#nbar{background:linear-gradient(90deg,var(--sf),var(--gd));color:#fff;font-size:13px;font-weight:600;padding:8px 0;overflow:hidden;white-space:nowrap;display:none}
+#nbar.on{display:block}
+.nticker{display:inline-block;animation:tick 30s linear infinite;padding-left:100%}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,.97);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:62px;box-shadow:0 2px 20px rgba(0,0,0,.25)}
+.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nlogo-ic{width:38px;height:38px;background:linear-gradient(135deg,var(--sf),var(--gd));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.nlogo-tx{font-family:'Baloo 2',sans-serif;font-size:17px;font-weight:800;color:#fff}
+.nlogo-tx span{color:var(--gd)}
+.navlinks{display:flex;gap:20px;list-style:none}
+.navlinks a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;font-weight:500}
+.navlinks a:hover{color:var(--gd)}
+.navright{display:flex;align-items:center;gap:7px}
+.xbtn{background:none;border:1px solid rgba(255,255,255,.2);color:#fff;padding:5px 11px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Hind',sans-serif}
+.xbtn:hover{border-color:var(--gd);color:var(--gd)}
+.ncta{background:linear-gradient(135deg,var(--sf),var(--gd));color:#fff;border:none;padding:7px 15px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none;padding:4px}
+.ham span{width:22px;height:2px;background:#fff;border-radius:2px;display:block}
+.mmenu{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(13,27,42,.99);padding:12px;z-index:998;flex-direction:column;gap:3px}
+.mmenu.open{display:flex}
+.mmenu a{color:rgba(255,255,255,.85);text-decoration:none;padding:10px 14px;border-radius:8px;font-size:14px;font-weight:500;display:block;cursor:pointer}
+#hero{min-height:100vh;background:linear-gradient(135deg,var(--nv) 0%,var(--nv2) 60%,#0a2540 100%);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:62px}
+.shp{position:absolute;border-radius:50%;opacity:.07}
+.shp1{width:480px;height:480px;background:var(--sf);top:-140px;right:-100px}
+.shp2{width:280px;height:280px;background:var(--tl);bottom:-90px;left:-70px}
+.hero-c{position:relative;z-index:2;padding:60px 5%;max-width:680px}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,0,.15);border:1px solid rgba(255,107,0,.3);color:var(--gd);padding:5px 14px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:20px}
+.hbadge::before{content:'●';color:var(--sf);font-size:7px;animation:bl 1.5s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+#htitle{font-family:'Baloo 2',sans-serif;font-size:clamp(28px,5.5vw,52px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:14px}
+.hl{background:linear-gradient(90deg,var(--sf),var(--gd));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#hsub{font-size:clamp(14px,1.8vw,17px);color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:28px}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap}
+.btnp{background:linear-gradient(135deg,var(--sf),var(--gd));color:#fff;padding:12px 22px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px;box-shadow:0 4px 18px rgba(255,107,0,.4);border:none;cursor:pointer;font-family:'Hind',sans-serif;transition:transform .2s}
+.btnp:hover{transform:translateY(-2px)}
+.btno{border:2px solid rgba(255,255,255,.3);color:#fff;padding:10px 20px;border-radius:12px;font-size:14px;font-weight:600;text-decoration:none;background:none;cursor:pointer;font-family:'Hind',sans-serif}
+.btno:hover{border-color:var(--gd);color:var(--gd)}
+.hstats{display:flex;gap:28px;margin-top:36px}
+.snum{font-family:'Baloo 2',sans-serif;font-size:26px;font-weight:800;color:var(--gd)}
+.slbl{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
+section{padding:70px 5%}
+.sh{text-align:center;margin-bottom:40px}
+.stag{display:inline-block;background:linear-gradient(90deg,var(--sf),var(--gd));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.stitle{font-family:'Baloo 2',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:800;color:var(--tx);line-height:1.2}
+.ssub{color:var(--mu);font-size:15px;margin-top:8px;max-width:500px;margin-left:auto;margin-right:auto}
+#services{background:var(--bg2)}
+.srvg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.srvc{background:var(--bg);border-radius:var(--r);padding:22px 18px;border:2px solid transparent;transition:all .3s}
+.srvc:hover{transform:translateY(-4px);border-color:var(--sf);box-shadow:0 8px 28px rgba(255,107,0,.13)}
+.srvi{width:48px;height:48px;background:linear-gradient(135deg,var(--sf),var(--gd));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px}
+.srvn{font-family:'Baloo 2',sans-serif;font-size:16px;font-weight:700;color:var(--tx);margin-bottom:5px}
+.srvd{font-size:13px;color:var(--mu);line-height:1.5}
+#tools{background:var(--bg)}
+.ttabs{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.ttab{padding:7px 16px;border-radius:50px;border:2px solid var(--bd);background:var(--bg2);color:var(--mu);font-size:12px;font-weight:600;cursor:pointer;font-family:'Hind',sans-serif;transition:all .2s}
+.ttab.on{background:linear-gradient(135deg,var(--sf),var(--gd));color:#fff;border-color:transparent}
+.tpanel{display:none}
+.tpanel.on{display:block}
+.tcrd{background:var(--cd);border:1px solid var(--bd);border-radius:var(--r);padding:26px;box-shadow:var(--sh);max-width:540px;margin:0 auto}
+.tcrd h3{font-family:'Baloo 2',sans-serif;font-size:19px;font-weight:800;color:var(--tx);margin-bottom:16px}
+.tr2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tfg{margin-bottom:12px}
+.tfg label{display:block;font-size:11px;font-weight:600;color:var(--mu);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.tfg input,.tfg select,.tfg textarea{width:100%;background:var(--bg);border:2px solid var(--bd);border-radius:9px;padding:9px 12px;font-size:14px;color:var(--tx);font-family:'Hind',sans-serif;outline:none;transition:border-color .2s}
+.tfg input:focus,.tfg select:focus,.tfg textarea:focus{border-color:var(--sf)}
+.tfg select option{background:var(--bg2)}
+.rbox{background:linear-gradient(135deg,rgba(255,107,0,.07),rgba(255,179,0,.04));border:2px solid rgba(255,107,0,.18);border-radius:12px;padding:16px;margin-top:14px;display:none}
+.rbox.show{display:block}
+.rtit{font-size:11px;font-weight:700;color:var(--sf);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.rval{font-family:'Baloo 2',sans-serif;font-size:21px;font-weight:800;color:var(--tx)}
+.rsub{font-size:13px;color:var(--mu);margin-top:3px}
+.rtags{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.rtag{background:rgba(34,197,94,.12);color:var(--gr);padding:3px 9px;border-radius:20px;font-size:12px;font-weight:600}
+.rtag.r{background:rgba(239,68,68,.1);color:var(--rd)}
+.trkl{display:flex;flex-direction:column;gap:9px;margin-top:12px;max-height:300px;overflow-y:auto}
+.trki{background:var(--bg);border:1px solid var(--bd);border-radius:11px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.trkj{font-weight:700;color:var(--tx);font-size:13px}
+.trkd{font-size:11px;color:var(--mu);margin-top:1px}
+.tst{padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700}
+.sta{background:rgba(0,180,216,.12);color:var(--tl)}
+.str{background:rgba(255,179,0,.12);color:var(--gd)}
+.sti{background:rgba(34,197,94,.12);color:var(--gr)}
+.stx{background:rgba(239,68,68,.1);color:var(--rd)}
+.trkdel{background:none;border:none;color:var(--mu);cursor:pointer;font-size:15px;padding:3px}
+.qzq{font-size:15px;font-weight:600;color:var(--tx);margin-bottom:12px;line-height:1.5}
+.qzopts{display:flex;flex-direction:column;gap:7px}
+.qzopt{background:var(--bg);border:2px solid var(--bd);border-radius:9px;padding:9px 12px;cursor:pointer;font-size:14px;text-align:left;color:var(--tx);font-family:'Hind',sans-serif;width:100%;transition:all .2s}
+.qzopt:hover{border-color:var(--sf)}
+.qzopt.ok{background:rgba(34,197,94,.12);border-color:var(--gr);color:var(--gr)}
+.qzopt.ng{background:rgba(239,68,68,.08);border-color:var(--rd);color:var(--rd)}
+.qzsc{font-family:'Baloo 2',sans-serif;font-size:28px;font-weight:800;color:var(--sf);text-align:center;margin:8px 0}
+.qzpg{display:flex;justify-content:space-between;font-size:12px;color:var(--mu);margin-bottom:10px}
+.pgbar{height:6px;background:var(--bd);border-radius:3px;margin-bottom:14px;overflow:hidden}
+.pgfill{height:100%;background:linear-gradient(90deg,var(--sf),var(--gd));border-radius:3px;transition:width .4s}
+.cutg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:10px}
+.cutc{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.cutex{font-weight:700;color:var(--tx);font-size:14px;margin-bottom:8px}
+.cutr{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid var(--bd)}
+.cutr:last-child{border-bottom:none}
+.cutcat{color:var(--mu)}
+.cutmk{font-weight:700;color:var(--sf)}
+.reml{display:flex;flex-direction:column;gap:8px;margin-top:10px;max-height:200px;overflow-y:auto}
+.remi{background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:10px 13px;display:flex;justify-content:space-between;align-items:center}
+.remex{font-weight:600;color:var(--tx);font-size:13px}
+.remdt{font-size:11px;color:var(--sf);margin-top:2px}
+.remdl{background:none;border:none;color:var(--rd);cursor:pointer;font-size:14px}
+#news{background:var(--bg2)}
+.nfilt{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+.nfb{padding:5px 13px;border-radius:20px;border:1px solid var(--bd);background:var(--bg2);color:var(--mu);font-size:12px;font-weight:600;cursor:pointer;font-family:'Hind',sans-serif;transition:all .2s}
+.nfb.on{background:linear-gradient(90deg,var(--sf),var(--gd));color:#fff;border-color:transparent}
+.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.ncard{background:var(--cd);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:transform .3s;display:flex;flex-direction:column}
+.ncard:hover{transform:translateY(-4px)}
+.nctop{background:linear-gradient(135deg,var(--nv),var(--nv2));padding:16px}
+.ncat{display:inline-block;background:linear-gradient(90deg,var(--sf),var(--gd));color:#fff;padding:2px 9px;border-radius:50px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.nttl{font-family:'Baloo 2',sans-serif;font-size:14px;font-weight:700;color:#fff;line-height:1.4}
+.ncbody{padding:13px 16px 16px;flex:1;display:flex;flex-direction:column}
+.ndesc{font-size:13px;color:var(--mu);line-height:1.6;flex:1}
+.nmeta{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.nsrc{font-size:11px;font-weight:600;color:var(--sf)}
+.ndate{font-size:11px;color:var(--mu)}
+.nbm{background:none;border:none;cursor:pointer;font-size:17px;padding:3px}
+.nlink{display:inline-flex;align-items:center;gap:5px;color:var(--sf);font-size:12px;font-weight:600;text-decoration:none;margin-top:9px}
+.nld{text-align:center;padding:36px;color:var(--mu);grid-column:1/-1}
+.spin{display:inline-block;width:26px;height:26px;border:3px solid var(--bd);border-top-color:var(--sf);border-radius:50%;animation:sp .8s linear infinite;margin-bottom:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+#about{background:var(--bg)}
+.abg{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.abimg{border-radius:20px;background:linear-gradient(135deg,var(--nv),var(--nv2));min-height:280px;display:flex;align-items:center;justify-content:center;font-size:68px;position:relative}
+.abbdg{position:absolute;bottom:-16px;right:-16px;background:var(--cd);border-radius:14px;padding:12px 16px;box-shadow:var(--sh);text-align:center}
+.abbn{font-family:'Baloo 2',sans-serif;font-size:26px;font-weight:800;color:var(--sf);line-height:1}
+.abbl{font-size:11px;color:var(--mu);margin-top:2px}
+#abtxt{font-size:15px;color:var(--mu);line-height:1.8;margin-bottom:20px}
+.abfl{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:24px}
+.abf{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--tx)}
+.abf::before{content:'✓';width:21px;height:21px;background:linear-gradient(135deg,var(--sf),var(--gd));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
+#contact{background:linear-gradient(135deg,var(--nv) 0%,var(--nv2) 100%)}
+#contact .stitle{color:#fff}
+#contact .ssub{color:rgba(255,255,255,.55)}
+.ctg{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:start}
+.ctit{display:flex;align-items:flex-start;gap:13px;margin-bottom:18px}
+.ctic{width:44px;height:44px;background:rgba(255,255,255,.1);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.ctlb{font-size:11px;font-weight:600;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.ctvl{font-size:14px;color:#fff;font-weight:500}
+.subbox{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:15px;padding:20px;margin-top:18px}
+.subttl{font-family:'Baloo 2',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:10px}
+.subrow{display:flex;gap:7px;flex-wrap:wrap}
+.subinp{flex:1;min-width:120px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:9px 12px;font-size:13px;color:#fff;font-family:'Hind',sans-serif;outline:none}
+.subinp::placeholder{color:rgba(255,255,255,.3)}
+.subsel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:9px;font-size:13px;color:#fff;font-family:'Hind',sans-serif;outline:none}
+.subsel option{background:var(--nv)}
+.ctform{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px}
+.ctfttl{font-family:'Baloo 2',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:14px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fg{margin-bottom:10px}
+.fg label{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,.55);margin-bottom:4px}
+.fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:9px;padding:9px 11px;font-size:13px;color:#fff;font-family:'Hind',sans-serif;outline:none;transition:border-color .2s}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.3)}
+.fg input:focus,.fg textarea:focus{border-color:var(--sf)}
+.fg textarea{resize:vertical;min-height:75px}
+.fg select option{background:var(--nv)}
+.fsub{width:100%;background:linear-gradient(135deg,var(--sf),var(--gd));color:#fff;border:none;padding:11px;border-radius:11px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Hind',sans-serif}
+#formmsg{margin-top:7px;font-size:12px;color:var(--gd);text-align:center}
+#popov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9998;display:none;align-items:center;justify-content:center}
+#popov.show{display:flex}
+#popbox{background:var(--cd);border-radius:20px;padding:30px 26px;max-width:390px;width:90%;text-align:center;position:relative;animation:pin .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pin{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+#ppcls{position:absolute;top:10px;right:13px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--mu)}
+#ppemoji{font-size:42px;margin-bottom:9px}
+#pptitle{font-family:'Baloo 2',sans-serif;font-size:20px;font-weight:800;color:var(--tx);margin-bottom:7px}
+#ppmsg{font-size:14px;color:var(--mu);line-height:1.6}
+#fab{position:fixed;bottom:22px;right:22px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:9px}
+.fabm{width:52px;height:52px;background:linear-gradient(135deg,var(--sf),var(--gd));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:23px;cursor:pointer;box-shadow:0 4px 18px rgba(255,107,0,.4);border:none;font-family:'Hind',sans-serif;transition:transform .2s}
+.fabm:hover{transform:scale(1.08)}
+.fabis{display:flex;flex-direction:column;align-items:flex-end;gap:7px;opacity:0;pointer-events:none;transform:translateY(8px);transition:all .3s}
+.fabis.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.fabrow{display:flex;align-items:center;gap:7px}
+.fablbl{background:var(--nv);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.fabbtn{width:40px;height:40px;background:var(--cd);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 2px 10px rgba(0,0,0,.12);text-decoration:none;border:none;cursor:pointer;font-family:'Hind',sans-serif}
+#bmdrawer{position:fixed;top:0;right:-100%;width:320px;height:100vh;background:var(--cd);box-shadow:-4px 0 28px rgba(0,0,0,.18);z-index:9990;transition:right .3s;overflow-y:auto;padding:18px}
+#bmdrawer.open{right:0}
+.dwh{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;border-bottom:1px solid var(--bd);padding-bottom:11px}
+.dwttl{font-family:'Baloo 2',sans-serif;font-size:17px;font-weight:800;color:var(--tx)}
+.dwcls{background:none;border:none;font-size:21px;cursor:pointer;color:var(--mu)}
+.bmi{background:var(--bg);border-radius:11px;padding:12px;margin-bottom:9px;border:1px solid var(--bd)}
+.bmit{font-weight:600;color:var(--tx);font-size:13px}
+.bmic{font-size:11px;color:var(--sf);margin-top:2px}
+.bmdl{background:none;border:none;color:var(--rd);cursor:pointer;font-size:13px;float:right}
+#toast{position:fixed;bottom:84px;right:22px;background:var(--gr);color:#fff;padding:10px 16px;border-radius:11px;font-size:13px;font-weight:600;z-index:99999;transform:translateY(60px);opacity:0;transition:all .3s;max-width:270px;pointer-events:none}
+#toast.show{transform:translateY(0);opacity:1}
+#toast.err{background:var(--rd)}
+#toast.info{background:var(--nv)}
+#pwabar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--nv);border-top:2px solid var(--sf);padding:11px 18px;z-index:9997;align-items:center;justify-content:space-between;gap:10px}
+#pwabar.show{display:flex}
+#pwabar p{color:#fff;font-size:13px;font-weight:500}
+.pwabtn{background:linear-gradient(135deg,var(--sf),var(--gd));color:#fff;border:none;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+.pwadis{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:7px 11px;border-radius:8px;font-size:12px;cursor:pointer}
+footer{background:var(--nv);color:rgba(255,255,255,.45);text-align:center;padding:18px;font-size:12px}
+footer span{color:var(--sf)}
+@media(max-width:900px){.abg,.ctg{grid-template-columns:1fr}}
+@media(max-width:700px){.navlinks,.ncta,.navright{display:none}.ham{display:flex}.frow,.tr2{grid-template-columns:1fr}.abfl{grid-template-columns:1fr}.hstats{gap:16px}.subrow{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<div id="nbar"><div class="nticker" id="ntxt">🎉 Manu Cyber Cafe में आपका स्वागत है! Garhani, Bihar</div></div>
+
+<nav id="navbar">
+  <a href="#" class="nlogo"><div class="nlogo-ic">💻</div><div class="nlogo-tx">Manu <span>Cyber</span></div></a>
+  <ul class="navlinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="navright">
+    <button class="xbtn" id="langbtn">EN</button>
+    <button class="xbtn" id="themebtn">🌙</button>
+    <button class="xbtn" id="fontbtn">A+</button>
+    <button class="xbtn" id="bmbtn">🔖</button>
+    <a href="#contact" class="ncta">संपर्क करें</a>
+  </div>
+  <button class="ham" id="hambtn"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mmenu" id="mmenu">
+  <a href="#services" class="mmlink">⚙️ Services</a>
+  <a href="#tools" class="mmlink">🔧 Tools</a>
+  <a href="#news" class="mmlink">📰 News</a>
+  <a href="#about" class="mmlink">ℹ️ About</a>
+  <a href="#contact" class="mmlink">📞 Contact</a>
+  <a class="mmlink" id="mm-theme">🌙 Dark/Light Mode</a>
+  <a class="mmlink" id="mm-lang">🌐 Hindi/English</a>
+</div>
+
+<section id="hero">
+  <div class="shp shp1"></div><div class="shp shp2"></div>
+  <div class="hero-c">
+    <div class="hbadge" id="herobadge">🟢 अभी खुला है</div>
+    <h1 id="htitle">Garhani का सबसे <span class="hl">Trusted</span> Cyber Cafe</h1>
+    <p id="hsub">Printing, Internet, Form Filling, Sarkari Forms, Education Help — सब कुछ एक छत के नीचे।</p>
+    <div class="hbtns">
+      <a href="#services" class="btnp">हमारी Services देखें ➜</a>
+      <a href="#contact" class="btno">Location जानें</a>
+    </div>
+    <div class="hstats">
+      <div><div class="snum" id="statc">5000+</div><div class="slbl">Happy Customers</div></div>
+      <div><div class="snum" id="staty">10+</div><div class="slbl">साल का अनुभव</div></div>
+      <div><div class="snum" id="stats">20+</div><div class="slbl">Services</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="sh"><div class="stag">हमारी Services</div><h2 class="stitle">क्या-क्या मिलेगा यहाँ?</h2><p class="ssub">सभी Digital काम एक जगह</p></div>
+  <div class="srvg" id="srvg"></div>
+</section>
+
+<section id="tools">
+  <div class="sh"><div class="stag">🔧 Smart Tools</div><h2 class="stitle">Useful Calculators & Tools</h2><p class="ssub">Age, Salary, Job Tracker, Quiz, AI Resume — सब एक जगह</p></div>
+  <div class="ttabs">
+    <button class="ttab on" data-tp="age">🎂 Age Calc</button>
+    <button class="ttab" data-tp="sal">💰 Salary</button>
+    <button class="ttab" data-tp="trk">📋 Tracker</button>
+    <button class="ttab" data-tp="qz">🧠 Quiz</button>
+    <button class="ttab" data-tp="res">📄 AI Resume</button>
+    <button class="ttab" data-tp="rec">🤖 Job Match</button>
+    <button class="ttab" data-tp="cut">📊 Cut-off</button>
+    <button class="ttab" data-tp="rem">⏰ Reminder</button>
+    <button class="ttab" data-tp="itv">🎤 Interview</button>
+  </div>
+
+  <div class="tpanel on" id="tp-age">
+    <div class="tcrd"><h3>🎂 Age & Job Eligibility</h3>
+      <div class="tr2">
+        <div class="tfg"><label>Date of Birth</label><input type="date" id="agedob"></div>
+        <div class="tfg"><label>Category</label><select id="agecat"><option value="general">General</option><option value="obc">OBC</option><option value="sc">SC/ST</option><option value="exsm">Ex-Serviceman</option></select></div>
+      </div>
+      <button class="btnp" id="age-btn" style="width:100%;justify-content:center;margin-top:4px">Calculate ➜</button>
+      <div class="rbox" id="ageres">
+        <div class="rtit">Aapki Umar</div>
+        <div class="rval" id="ageval">—</div>
+        <div class="rsub" id="agesub"></div>
+        <div class="rtags" id="agetags"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tpanel" id="tp-sal">
+    <div class="tcrd"><h3>💰 Sarkari Salary Calculator</h3>
+      <div class="tr2">
+        <div class="tfg"><label>Pay Level</label><select id="sallvl"><option value="18000">Level 1 — ₹18,000</option><option value="19900">Level 2 — ₹19,900</option><option value="21700">Level 3 — ₹21,700</option><option value="25500">Level 4 — ₹25,500</option><option value="29200" selected>Level 5 — ₹29,200</option><option value="35400">Level 6 — ₹35,400</option><option value="44900">Level 7 — ₹44,900</option><option value="56100">Level 10 — ₹56,100</option></select></div>
+        <div class="tfg"><label>City Category</label><select id="salcity"><option value="x">X City (27% HRA)</option><option value="y" selected>Y City (18% HRA)</option><option value="z">Z City (9% HRA)</option></select></div>
+      </div>
+      <div class="tr2">
+        <div class="tfg"><label>DA % (Current 53%)</label><input type="number" id="salda" value="53" min="0" max="100"></div>
+        <div class="tfg"><label>TA (₹)</label><input type="number" id="salta" value="3600"></div>
+      </div>
+      <button class="btnp" id="sal-btn" style="width:100%;justify-content:center;margin-top:4px">Calculate Salary ➜</button>
+      <div class="rbox" id="salres">
+        <div class="rtit">In-hand Salary (Approx)</div>
+        <div class="rval" id="salval">—</div>
+        <div id="salbd" style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tpanel" id="tp-trk">
+    <div class="tcrd"><h3>📋 Job Application Tracker</h3>
+      <div class="tr2">
+        <div class="tfg"><label>Job Title</label><input type="text" id="trjob" placeholder="SSC GD Constable"></div>
+        <div class="tfg"><label>Department</label><input type="text" id="trdept" placeholder="SSC, BPSC"></div>
+      </div>
+      <div class="tr2">
+        <div class="tfg"><label>Applied Date</label><input type="date" id="trdate"></div>
+        <div class="tfg"><label>Status</label><select id="trst"><option value="a">Applied</option><option value="r">Result Awaited</option><option value="i">Interview</option><option value="x">Rejected</option></select></div>
+      </div>
+      <button class="btnp" id="trk-btn" style="width:100%;justify-content:center;margin-top:4px">➕ Add to Tracker</button>
+      <div class="trkl" id="trklist"></div>
+    </div>
+  </div>
+
+  <div class="tpanel" id="tp-qz">
+    <div class="tcrd"><h3>🧠 Mock Quiz</h3>
+      <div class="tfg"><label>Topic</label><select id="qztopic"><option value="gk">General Knowledge</option><option value="math">Basic Math</option><option value="reasoning">Reasoning</option><option value="bihar">Bihar GK</option></select></div>
+      <button class="btnp" id="qz-start-btn" style="width:100%;justify-content:center">🚀 Quiz Start करें</button>
+      <div id="qzarea" style="margin-top:14px;display:none">
+        <div class="qzpg"><span id="qzprog">Q 1/10</span><span id="qzsc">Score: 0</span></div>
+        <div class="pgbar"><div class="pgfill" id="qzbar" style="width:10%"></div></div>
+        <div class="qzq" id="qzq"></div>
+        <div class="qzopts" id="qzopts"></div>
+        <button class="btnp" id="qz-next-btn" style="margin-top:12px;display:none;width:100%;justify-content:center">Next ➜</button>
+      </div>
+      <div id="qzresult" style="display:none;text-align:center;padding:14px 0">
+        <div style="font-size:34px;margin-bottom:7px" id="qzemoji">🎉</div>
+        <div class="qzsc" id="qzfinsc"></div>
+        <div style="font-size:13px;color:var(--mu)" id="qzmsg"></div>
+        <button class="btnp" id="qz-retry-btn" style="margin-top:14px">🔄 Dobara Try करें</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tpanel" id="tp-res">
+    <div class="tcrd"><h3>📄 AI Resume Builder</h3>
+      <div class="tr2">
+        <div class="tfg"><label>Full Name</label><input type="text" id="resname" placeholder="Ramesh Kumar"></div>
+        <div class="tfg"><label>Mobile</label><input type="text" id="resphone" placeholder="9876543210"></div>
+      </div>
+      <div class="tr2">
+        <div class="tfg"><label>Qualification</label><select id="resqual"><option>10th Pass</option><option>12th Pass</option><option>Graduate</option><option>Post Graduate</option><option>ITI</option><option>Diploma</option></select></div>
+        <div class="tfg"><label>Target Job</label><input type="text" id="resjob" placeholder="SSC GD / Clerk"></div>
+      </div>
+      <div class="tfg"><label>Skills (comma separated)</label><input type="text" id="resskills" placeholder="Computer, Typing, DTP"></div>
+      <div class="tfg"><label>Address</label><input type="text" id="resaddr" placeholder="Garhani, Bhojpur, Bihar"></div>
+      <button class="btnp" id="res-btn" style="width:100%;justify-content:center">🤖 AI Resume Generate करें</button>
+      <div id="resout" style="margin-top:14px;display:none"></div>
+    </div>
+  </div>
+
+  <div class="tpanel" id="tp-rec">
+    <div class="tcrd"><h3>🤖 Smart Job Recommendation</h3>
+      <div class="tr2">
+        <div class="tfg"><label>Qualification</label><select id="recqual"><option>10th Pass</option><option>12th Pass</option><option>Graduate</option><option>Post Graduate</option><option>ITI</option><option>Diploma</option></select></div>
+        <div class="tfg"><label>Age</label><input type="number" id="recage" placeholder="22" min="18" max="45"></div>
+      </div>
+      <div class="tr2">
+        <div class="tfg"><label>Category</label><select id="reccat"><option value="general">General</option><option value="obc">OBC</option><option value="sc">SC/ST</option></select></div>
+        <div class="tfg"><label>Preferred Field</label><select id="recfield"><option>Police/Defence</option><option>Banking</option><option>Railway</option><option>Teaching</option><option>Clerk/Admin</option></select></div>
+      </div>
+      <button class="btnp" id="rec-btn" style="width:100%;justify-content:center">🔍 Jobs Dhundho</button>
+      <div id="recout" style="margin-top:14px;display:none"></div>
+    </div>
+  </div>
+
+  <div class="tpanel" id="tp-cut">
+    <div class="tcrd"><h3>📊 Previous Year Cut-off Marks</h3>
+      <div class="tr2">
+        <div class="tfg"><label>Exam</label><select id="cutexam"><option value="sscgd">SSC GD</option><option value="bpsc">BPSC CCE</option><option value="bpscteacher">BPSC Teacher</option><option value="railway">Railway Group D</option><option value="uppolice">UP Police</option></select></div>
+        <div class="tfg"><label>Year</label><select id="cutyear"><option>2024</option><option>2023</option><option>2022</option></select></div>
+      </div>
+      <button class="btnp" id="cut-btn" style="width:100%;justify-content:center">📊 Cut-off Dekho</button>
+      <div id="cutout" style="margin-top:14px;display:none"></div>
+    </div>
+  </div>
+
+  <div class="tpanel" id="tp-rem">
+    <div class="tcrd"><h3>⏰ Exam Date Reminder</h3>
+      <div class="tr2">
+        <div class="tfg"><label>Exam Name</label><input type="text" id="remexam" placeholder="SSC GD Exam 2025"></div>
+        <div class="tfg"><label>Exam Date</label><input type="date" id="remdate"></div>
+      </div>
+      <button class="btnp" id="rem-btn" style="width:100%;justify-content:center">⏰ Reminder Set करें</button>
+      <div class="reml" id="remlist"></div>
+    </div>
+  </div>
+
+  <div class="tpanel" id="tp-itv">
+    <div class="tcrd"><h3>🎤 AI Interview Prep</h3>
+      <div class="tfg"><label>Post / Job Title</label><input type="text" id="itvjob" placeholder="SSC GD Constable / BPSC Teacher"></div>
+      <div class="tfg"><label>Qualification</label><select id="itvqual"><option>10th Pass</option><option>12th Pass</option><option>Graduate</option><option>Post Graduate</option></select></div>
+      <button class="btnp" id="itv-btn" style="width:100%;justify-content:center">🎤 Questions Generate करें</button>
+      <div id="itvout" style="margin-top:14px;display:none"></div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="sh"><div class="stag">📰 Latest News</div><h2 class="stitle">शिक्षा & सरकारी समाचार</h2><p class="ssub">Admin-approved education aur government job news</p></div>
+  <div class="nfilt">
+    <button class="nfb on" data-cat="all">🔥 All</button>
+    <button class="nfb" data-cat="Education">📚 Education</button>
+    <button class="nfb" data-cat="Sarkari Naukri">💼 Naukri</button>
+    <button class="nfb" data-cat="Exam">📝 Exam</button>
+    <button class="nfb" data-cat="Result">📋 Result</button>
+    <button class="nfb" data-cat="Scholarship">🏆 Scholarship</button>
+  </div>
+  <div class="ngrid" id="ngrid"><div class="nld"><div class="spin"></div><br>News load हो रही है...</div></div>
+</section>
+
+<section id="about">
+  <div class="abg">
+    <div style="position:relative">
+      <div class="abimg">🖥️<div class="abbdg"><div class="abbn">⭐ 4.9</div><div class="abbl">Customer Rating</div></div></div>
+    </div>
+    <div>
+      <div class="sh" style="text-align:left;margin-bottom:16px"><div class="stag">हमारे बारे में</div><h2 class="stitle" id="abtitle">Manu Cyber Cafe — Garhani की शान</h2></div>
+      <p id="abtxt">हम Garhani, Bihar में पिछले कई सालों से लोगों की Digital जरूरतों को पूरा कर रहे हैं।</p>
+      <div class="abfl" id="abfeats"><div class="abf">Fast Internet</div><div class="abf">Color Printing</div><div class="abf">Govt Forms</div><div class="abf">Exam Help</div><div class="abf">Lamination</div><div class="abf">Scan & Copy</div></div>
+      <a href="#contact" class="btnp" style="display:inline-flex">हमसे मिलें ➜</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sh"><div class="stag">📍 Contact</div><h2 class="stitle">हमसे जुड़ें</h2><p class="ssub" id="ctsub">कोई भी काम हो, हम हाजिर हैं।</p></div>
+  <div class="ctg">
+    <div>
+      <div class="ctit"><div class="ctic">📍</div><div><div class="ctlb">Address</div><div class="ctvl" id="ctaddr">Garhani, Bhojpur, Bihar</div></div></div>
+      <div class="ctit"><div class="ctic">📞</div><div><div class="ctlb">Phone</div><div class="ctvl" id="ctphone">+91 XXXXX XXXXX</div></div></div>
+      <div class="ctit"><div class="ctic">🕐</div><div><div class="ctlb">Timing</div><div class="ctvl" id="cttime">Mon–Sat: 8AM – 9PM</div></div></div>
+      <div class="ctit"><div class="ctic">📧</div><div><div class="ctlb">Email</div><div class="ctvl" id="ctemail">manucybercafe@email.com</div></div></div>
+      <div class="subbox">
+        <div class="subttl">🔔 Live Job Alert Subscribe करें!</div>
+        <p style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px">नई Sarkari Job आने पर notification पाएं</p>
+        <div class="subrow">
+          <select class="subsel" id="subtype"><option value="whatsapp">📱 WhatsApp</option><option value="email">📧 Email</option></select>
+          <input class="subinp" type="text" id="subinp" placeholder="Number ya Email">
+        </div>
+        <button class="btnp" id="sub-btn" style="width:100%;justify-content:center;margin-top:9px">✅ Subscribe</button>
+        <div id="submsg" style="font-size:12px;color:var(--gd);margin-top:7px;text-align:center"></div>
+      </div>
+    </div>
+    <div class="ctform">
+      <div class="ctfttl">Message भेजें 💬</div>
+      <div class="frow">
+        <div class="fg"><label>नाम</label><input type="text" id="fname" placeholder="Ramesh Kumar"></div>
+        <div class="fg"><label>Phone</label><input type="text" id="fphone" placeholder="9876543210"></div>
+      </div>
+      <div class="fg"><label>Service</label><select id="fsrv"><option value="">Select</option><option>Printing</option><option>Form Filling</option><option>Internet</option><option>Lamination</option><option>Other</option></select></div>
+      <div class="fg"><label>Message</label><textarea id="fmsg" placeholder="आपका काम?"></textarea></div>
+      <button class="fsub" id="form-btn">📤 Message भेजें</button>
+      <div id="formmsg"></div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2025 <span>Manu Cyber Cafe</span>, Garhani, Bihar. All Rights Reserved. Built with ❤️</p></footer>
+
+<div id="popov"><div id="popbox"><button id="ppcls">✕</button><div id="ppemoji">🎉</div><div id="pptitle">Welcome!</div><p id="ppmsg">Manu Cyber Cafe में आपका स्वागत है!</p></div></div>
+
+<div id="fab">
+  <div class="fabis" id="fabis">
+    <div class="fabrow"><div class="fablbl">Call Now</div><a class="fabbtn" id="fabcall" href="tel:+91XXXXXXXXXX">📞</a></div>
+    <div class="fabrow"><div class="fablbl">WhatsApp</div><a class="fabbtn" id="fabwa" href="https://wa.me/91XXXXXXXXXX" target="_blank">💬</a></div>
+    <div class="fabrow"><div class="fablbl">Bookmarks</div><button class="fabbtn" id="fab-bm">🔖</button></div>
+    <div class="fabrow"><div class="fablbl">Top pe jao</div><button class="fabbtn" id="fab-top">⬆️</button></div>
+  </div>
+  <button class="fabm" id="fab-main">⚡</button>
+</div>
+
+<div id="bmdrawer">
+  <div class="dwh"><div class="dwttl">🔖 Saved News</div><button class="dwcls" id="bm-close">✕</button></div>
+  <div id="bmlist"></div>
+</div>
+
+<div id="pwabar">
+  <p>📲 <strong>App Install करें</strong> — Offline bhi kaam karega!</p>
+  <div style="display:flex;gap:7px">
+    <button class="pwabtn" id="pwa-install">Install</button>
+    <button class="pwadis" id="pwa-dismiss">✕</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- Firebase FIRST, then our code -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script>
+/* ============================================================
+   ALL CODE IN ONE IIFE — NO let/const — NO TDZ ERRORS EVER
+   ============================================================ */
+(function() {
+"use strict";
+
+/* --- ALL VARS DECLARED FIRST --- */
+var db, fabOpen, mobOpen, curLang, curTheme, curFs;
+var allNews, trkItems, bookmarks, reminders, deferredPWA;
+var qzQs, qzIdx, qzScore, qzDone, toastTmr;
+
+/* --- INIT VALUES --- */
+fabOpen = false;
+mobOpen = false;
+curLang = localStorage.getItem("mc_lang") || "hi";
+curTheme = localStorage.getItem("mc_theme") || "light";
+curFs = parseInt(localStorage.getItem("mc_fs") || "16");
+allNews = [];
+deferredPWA = null;
+qzQs = []; qzIdx = 0; qzScore = 0; qzDone = false; toastTmr = null;
+
+try { trkItems = JSON.parse(localStorage.getItem("mc_trk") || "[]"); } catch(e) { trkItems = []; }
+try { bookmarks = JSON.parse(localStorage.getItem("mc_bm") || "[]"); } catch(e) { bookmarks = []; }
+try { reminders = JSON.parse(localStorage.getItem("mc_rem") || "[]"); } catch(e) { reminders = []; }
+
+/* --- FIREBASE INIT --- */
+var FC = {
+  apiKey: "AIzaSyAyn861FpQaTlgMtkr5TPQ7lyf6yrkiaMY",
+  authDomain: "manu-cyber.firebaseapp.com",
+  databaseURL: "https://manu-cyber-default-rtdb.firebaseio.com",
+  projectId: "manu-cyber",
+  storageBucket: "manu-cyber.firebasestorage.app",
+  messagingSenderId: "826700852129",
+  appId: "1:826700852129:web:7a0ed44535ae66e7e539e0"
+};
+firebase.initializeApp(FC);
+db = firebase.database();
+
+/* --- ANTHROPIC KEY --- */
+var AKEY = "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";
+var AURL = "https://api.anthropic.com/v1/messages";
+var AHDR = {"Content-Type":"application/json","x-api-key":AKEY,"anthropic-version":"2023-06-01"};
+
+/* --- DEFAULT SERVICES --- */
+var DSRV = [
+  {icon:"🖨️",name:"Printing & Xerox",desc:"Black & White, Color printing, Xerox, Scanning."},
+  {icon:"🌐",name:"Internet Service",desc:"High-speed internet browsing."},
+  {icon:"📝",name:"Form Filling",desc:"Sarkari forms, online applications."},
+  {icon:"🆔",name:"Admit Card / Result",desc:"Exam admit cards, results print karo."},
+  {icon:"🔒",name:"Lamination",desc:"Documents, ID cards, photos ki lamination."},
+  {icon:"💾",name:"Photo / DTP Work",desc:"Passport photos, DTP, layout design."}
+];
+
+/* --- QUIZ BANK --- */
+var QB = {
+  gk:[
+    {q:"भारत का राष्ट्रीय पशु?",o:["सिंह","बाघ","हाथी","गाय"],a:1},
+    {q:"भारत की राजधानी?",o:["मुंबई","दिल्ली","कोलकाता","चेन्नई"],a:1},
+    {q:"भारत का राष्ट्रीय फूल?",o:["गुलाब","कमल","चमेली","सूरजमुखी"],a:1},
+    {q:"संविधान दिवस कब?",o:["15 अगस्त","26 जनवरी","26 नवंबर","2 अक्टूबर"],a:2},
+    {q:"भारत में कुल राज्य?",o:["25","28","29","30"],a:1},
+    {q:"सबसे बड़ा राज्य (क्षेत्रफल)?",o:["महाराष्ट्र","राजस्थान","MP","UP"],a:1},
+    {q:"RBI की स्थापना?",o:["1935","1947","1950","1920"],a:0},
+    {q:"UNESCO मुख्यालय?",o:["New York","Paris","Geneva","London"],a:1},
+    {q:"राष्ट्रगान किसने लिखा?",o:["Bankim Chandra","Rabindranath Tagore","Gandhi","SC Bose"],a:1},
+    {q:"पंचायती राज दिवस?",o:["24 अप्रैल","15 अगस्त","26 जनवरी","1 मई"],a:0}
+  ],
+  math:[
+    {q:"15 × 15 = ?",o:["215","225","235","205"],a:1},
+    {q:"√144 = ?",o:["11","12","13","14"],a:1},
+    {q:"25% of 400 = ?",o:["50","75","100","125"],a:2},
+    {q:"12 + 18 × 2 = ?",o:["48","60","36","30"],a:0},
+    {q:"1/3 + 1/6 = ?",o:["2/9","1/2","1/3","2/3"],a:1},
+    {q:"3³ = ?",o:["9","18","27","36"],a:2},
+    {q:"₹500 me kharida ₹600 me becha. Labh %?",o:["10%","15%","20%","25%"],a:2},
+    {q:"120 का 40% = ?",o:["36","40","42","48"],a:3},
+    {q:"LCM of 4 and 6?",o:["12","18","24","6"],a:0},
+    {q:"A:B=2:3, B:C=3:4 → A:C?",o:["1:2","2:4","1:3","3:4"],a:0}
+  ],
+  reasoning:[
+    {q:"ABCD:DCBA :: MNOP:?",o:["PONM","PNOM","OPNM","MNPO"],a:0},
+    {q:"5,10,20,40,?",o:["60","70","80","90"],a:2},
+    {q:"Odd one out: Apple,Mango,Carrot,Banana",o:["Apple","Mango","Carrot","Banana"],a:2},
+    {q:"2,6,12,20,30,?",o:["40","42","44","48"],a:1},
+    {q:"North की विपरीत दिशा?",o:["East","West","South","None"],a:2},
+    {q:"Mirror of 'b'?",o:["d","p","q","b"],a:3},
+    {q:"Series: Z,X,V,T,?",o:["P","Q","R","S"],a:2},
+    {q:"6 log 6 din me 6 kaam → 12 log 12 din me?",o:["12","24","6","18"],a:1},
+    {q:"FACE=6135 → BADE=?",o:["2145","2135","2415","2451"],a:0},
+    {q:"CAT=3120 → DOG=?",o:["4157","4715","4175","4071"],a:0}
+  ],
+  bihar:[
+    {q:"बिहार की राजधानी?",o:["गया","पटना","मुजफ्फरपुर","भागलपुर"],a:1},
+    {q:"बिहार दिवस?",o:["22 मार्च","15 अगस्त","26 जनवरी","1 नवंबर"],a:0},
+    {q:"भोजपुर जिले का मुख्यालय?",o:["जगदीशपुर","आरा","पीरो","शाहपुर"],a:1},
+    {q:"बोधगया किस जिले में?",o:["पटना","गया","नालंदा","जहानाबाद"],a:1},
+    {q:"बिहार में लोकसभा सीटें?",o:["35","40","45","38"],a:1},
+    {q:"बिहार का राज्य पक्षी?",o:["मोर","गौरैया","तोता","बुलबुल"],a:1},
+    {q:"नालंदा विश्वविद्यालय?",o:["पटना","राजगीर","नालंदा","गया"],a:2},
+    {q:"विक्रमशिला विश्वविद्यालय?",o:["भागलपुर","पटना","गया","मुंगेर"],a:0},
+    {q:"बिहार की सबसे लंबी नदी?",o:["गंगा","सोन","गंडक","कोसी"],a:0},
+    {q:"गढ़नी किस जिले में?",o:["पटना","भोजपुर","सारण","रोहतास"],a:1}
+  ]
+};
+
+/* --- CUTOFF DATA --- */
+var CUTOFF = {
+  sscgd:{name:"SSC GD 2024",cats:[{c:"General",m:"115.50"},{c:"OBC",m:"108.25"},{c:"SC",m:"99.75"},{c:"ST",m:"88.50"},{c:"EWS",m:"111.00"}]},
+  bpsc:{name:"BPSC CCE 2023",cats:[{c:"General",m:"111"},{c:"OBC",m:"105"},{c:"SC",m:"95"},{c:"ST",m:"88"},{c:"EWS",m:"108"}]},
+  bpscteacher:{name:"BPSC Teacher 2023",cats:[{c:"General",m:"102"},{c:"OBC",m:"97"},{c:"SC",m:"89"},{c:"ST",m:"82"},{c:"EWS",m:"99"}]},
+  railway:{name:"Railway Group D 2022",cats:[{c:"General",m:"55.14"},{c:"OBC",m:"51.22"},{c:"SC",m:"46.87"},{c:"ST",m:"41.33"},{c:"EWS",m:"52.99"}]},
+  uppolice:{name:"UP Police Constable 2024",cats:[{c:"General",m:"272"},{c:"OBC",m:"265"},{c:"SC",m:"250"},{c:"ST",m:"239"},{c:"EWS",m:"268"}]}
+};
+
+/* ============ HELPER: TOAST ============ */
+function toast(msg, type) {
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "show" + (type === "err" ? " err" : type === "info" ? " info" : "");
+  clearTimeout(toastTmr);
+  toastTmr = setTimeout(function() { t.className = ""; }, 3000);
+}
+
+/* ============ APPLY SETTINGS ============ */
+document.documentElement.setAttribute("data-theme", curTheme);
+document.getElementById("themebtn").textContent = curTheme === "dark" ? "☀️" : "🌙";
+document.documentElement.style.setProperty("--fs", curFs + "px");
+document.getElementById("fontbtn").textContent = curFs <= 14 ? "A" : curFs >= 18 ? "A++" : "A+";
+document.getElementById("langbtn").textContent = curLang === "hi" ? "EN" : "HI";
+
+/* ============ FIREBASE LISTENERS ============ */
+db.ref("site").on("value", function(snap) {
+  var d = snap.val() || {};
+  if (d.notice && d.notice.active) {
+    document.getElementById("nbar").classList.add("on");
+    document.getElementById("ntxt").textContent = d.notice.text || "";
+  }
+  if (d.hero) {
+    if (d.hero.title) document.getElementById("htitle").innerHTML = d.hero.title;
+    if (d.hero.subtitle) document.getElementById("hsub").textContent = d.hero.subtitle;
+    if (d.hero.badge) document.getElementById("herobadge").textContent = d.hero.badge;
+    if (d.hero.statC) document.getElementById("statc").textContent = d.hero.statC;
+    if (d.hero.statY) document.getElementById("staty").textContent = d.hero.statY;
+    if (d.hero.statS) document.getElementById("stats").textContent = d.hero.statS;
+  }
+  if (d.about) {
+    if (d.about.title) document.getElementById("abtitle").textContent = d.about.title;
+    if (d.about.text) document.getElementById("abtxt").textContent = d.about.text;
+    if (d.about.features) {
+      document.getElementById("abfeats").innerHTML = d.about.features.map(function(f) {
+        return '<div class="abf">' + f + "</div>";
+      }).join("");
+    }
+  }
+  if (d.contact) {
+    if (d.contact.address) document.getElementById("ctaddr").textContent = d.contact.address;
+    if (d.contact.phone) {
+      document.getElementById("ctphone").textContent = d.contact.phone;
+      document.getElementById("fabcall").href = "tel:" + d.contact.phone;
+    }
+    if (d.contact.timing) document.getElementById("cttime").textContent = d.contact.timing;
+    if (d.contact.email) document.getElementById("ctemail").textContent = d.contact.email;
+    if (d.contact.whatsapp) document.getElementById("fabwa").href = "https://wa.me/91" + d.contact.whatsapp;
+    if (d.contact.sub) document.getElementById("ctsub").textContent = d.contact.sub;
+  }
+  if (d.popup && d.popup.active) {
+    setTimeout(function() {
+      if (d.popup.emoji) document.getElementById("ppemoji").textContent = d.popup.emoji;
+      if (d.popup.title) document.getElementById("pptitle").textContent = d.popup.title;
+      if (d.popup.msg) document.getElementById("ppmsg").textContent = d.popup.msg;
+      document.getElementById("popov").classList.add("show");
+    }, 2000);
+  }
+});
+
+db.ref("services").on("value", function(snap) {
+  var list = snap.val() ? Object.values(snap.val()) : DSRV;
+  document.getElementById("srvg").innerHTML = list.map(function(s) {
+    return '<div class="srvc"><div class="srvi">' + (s.icon||"💻") + '</div><div class="srvn">' + s.name + '</div><div class="srvd">' + s.desc + "</div></div>";
+  }).join("");
+});
+
+db.ref("news").on("value", function(snap) {
+  allNews = [];
+  snap.forEach(function(c) { var n = c.val(); if (n.approved) allNews.push(n); });
+  allNews.sort(function(a,b) { return (b.createdAt||0)-(a.createdAt||0); });
+  renderNews(allNews);
+});
+
+/* ============ RENDER NEWS ============ */
+function renderNews(items) {
+  var g = document.getElementById("ngrid");
+  if (!items || !items.length) { g.innerHTML = '<div class="nld">📭 अभी कोई News नहीं है।</div>'; return; }
+  g.innerHTML = items.map(function(n, i) {
+    var saved = bookmarks.some(function(b) { return b.title === n.title; });
+    return '<div class="ncard">' +
+      '<div class="nctop"><div class="ncat">' + (n.category||"Education") + '</div><div class="nttl">' + n.title + "</div></div>" +
+      '<div class="ncbody"><div class="ndesc">' + (n.description||"") + "</div>" +
+      '<div class="nmeta"><span class="nsrc">' + (n.source||"Manu Cyber") + '</span><span class="ndate">' + (n.date||"") + "</span>" +
+      '<button class="nbm" data-ni="' + i + '">' + (saved?"🔖":"🏷️") + "</button></div>" +
+      (n.link ? '<a href="' + n.link + '" target="_blank" rel="noopener" class="nlink">पूरी खबर पढ़ें ➜</a>' : "") +
+      "</div></div>";
+  }).join("");
+}
+
+/* ============ TOOL TABS ============ */
+document.querySelectorAll(".ttab").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    var tp = this.getAttribute("data-tp");
+    document.querySelectorAll(".ttab").forEach(function(b) { b.classList.remove("on"); });
+    document.querySelectorAll(".tpanel").forEach(function(p) { p.classList.remove("on"); });
+    this.classList.add("on");
+    var el = document.getElementById("tp-" + tp);
+    if (el) el.classList.add("on");
+  });
+});
+
+/* ============ NEWS FILTER ============ */
+document.querySelectorAll(".nfb").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    var cat = this.getAttribute("data-cat");
+    document.querySelectorAll(".nfb").forEach(function(b) { b.classList.remove("on"); });
+    this.classList.add("on");
+    renderNews(cat === "all" ? allNews : allNews.filter(function(n) { return n.category === cat; }));
+  });
+});
+
+/* ============ NEWS BOOKMARK (delegated) ============ */
+document.getElementById("ngrid").addEventListener("click", function(e) {
+  var btn = e.target.closest(".nbm");
+  if (!btn) return;
+  var i = parseInt(btn.getAttribute("data-ni"));
+  var n = allNews[i];
+  if (!n) return;
+  var bi = bookmarks.findIndex(function(b) { return b.title === n.title; });
+  if (bi > -1) { bookmarks.splice(bi, 1); toast("🗑️ Bookmark removed"); }
+  else { bookmarks.push(n); toast("🔖 Saved!"); }
+  localStorage.setItem("mc_bm", JSON.stringify(bookmarks));
+  renderNews(allNews); renderBookmarks();
+});
+
+/* ============ FAB ============ */
+document.getElementById("fab-main").addEventListener("click", function() {
+  fabOpen = !fabOpen;
+  document.getElementById("fabis").classList.toggle("open", fabOpen);
+});
+document.getElementById("fab-bm").addEventListener("click", function() {
+  document.getElementById("bmdrawer").classList.add("open");
+});
+document.getElementById("fab-top").addEventListener("click", function() {
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+
+/* ============ HAMBURGER ============ */
+document.getElementById("hambtn").addEventListener("click", function() {
+  mobOpen = !mobOpen;
+  document.getElementById("mmenu").classList.toggle("open", mobOpen);
+});
+document.querySelectorAll(".mmlink").forEach(function(a) {
+  a.addEventListener("click", function() {
+    mobOpen = false;
+    document.getElementById("mmenu").classList.remove("open");
+  });
+});
+document.getElementById("mm-theme").addEventListener("click", function() {
+  curTheme = curTheme === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", curTheme);
+  document.getElementById("themebtn").textContent = curTheme === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("mc_theme", curTheme);
+});
+document.getElementById("mm-lang").addEventListener("click", function() {
+  curLang = curLang === "hi" ? "en" : "hi";
+  localStorage.setItem("mc_lang", curLang);
+  document.getElementById("langbtn").textContent = curLang === "hi" ? "EN" : "HI";
+  toast(curLang === "en" ? "Switched to English" : "Hindi mode on!", "info");
+});
+
+/* ============ POPUP ============ */
+document.getElementById("ppcls").addEventListener("click", function() {
+  document.getElementById("popov").classList.remove("show");
+});
+document.getElementById("popov").addEventListener("click", function(e) {
+  if (e.target === this) this.classList.remove("show");
+});
+
+/* ============ THEME, FONT, LANG ============ */
+document.getElementById("themebtn").addEventListener("click", function() {
+  curTheme = curTheme === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", curTheme);
+  this.textContent = curTheme === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("mc_theme", curTheme);
+});
+document.getElementById("fontbtn").addEventListener("click", function() {
+  var sizes = [14,16,18,20];
+  var i = sizes.indexOf(curFs);
+  curFs = sizes[(i+1) % sizes.length];
+  document.documentElement.style.setProperty("--fs", curFs + "px");
+  this.textContent = curFs <= 14 ? "A" : curFs >= 18 ? "A++" : "A+";
+  localStorage.setItem("mc_fs", curFs);
+});
+document.getElementById("langbtn").addEventListener("click", function() {
+  curLang = curLang === "hi" ? "en" : "hi";
+  localStorage.setItem("mc_lang", curLang);
+  this.textContent = curLang === "hi" ? "EN" : "HI";
+  toast(curLang === "en" ? "Switched to English" : "Hindi mode on!", "info");
+});
+
+/* ============ BOOKMARKS DRAWER ============ */
+document.getElementById("bmbtn").addEventListener("click", function() {
+  document.getElementById("bmdrawer").classList.add("open");
+});
+document.getElementById("bm-close").addEventListener("click", function() {
+  document.getElementById("bmdrawer").classList.remove("open");
+});
+function renderBookmarks() {
+  var el = document.getElementById("bmlist");
+  if (!bookmarks.length) { el.innerHTML = '<div style="color:var(--mu);font-size:13px;text-align:center;padding:18px">Koi saved news nahi.</div>'; return; }
+  el.innerHTML = bookmarks.map(function(b, i) {
+    return '<div class="bmi"><button class="bmdl" data-bi="' + i + '">✕</button><div class="bmit">' + b.title + '</div><div class="bmic">' + b.category + "</div></div>";
+  }).join("");
+  el.querySelectorAll(".bmdl").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      bookmarks.splice(parseInt(this.getAttribute("data-bi")), 1);
+      localStorage.setItem("mc_bm", JSON.stringify(bookmarks));
+      renderBookmarks(); renderNews(allNews);
+    });
+  });
+}
+renderBookmarks();
+
+/* ============ SCROLL NAV ============ */
+window.addEventListener("scroll", function() {
+  document.getElementById("navbar").style.background = window.scrollY > 50 ? "rgba(13,27,42,.99)" : "rgba(13,27,42,.97)";
+});
+
+/* ============ PWA ============ */
+window.addEventListener("beforeinstallprompt", function(e) {
+  e.preventDefault(); deferredPWA = e;
+  document.getElementById("pwabar").classList.add("show");
+});
+document.getElementById("pwa-install").addEventListener("click", function() {
+  if (deferredPWA) { deferredPWA.prompt(); document.getElementById("pwabar").classList.remove("show"); }
+});
+document.getElementById("pwa-dismiss").addEventListener("click", function() {
+  document.getElementById("pwabar").classList.remove("show");
+});
+
+/* ============ AGE CALCULATOR ============ */
+document.getElementById("age-btn").addEventListener("click", function() {
+  var dob = document.getElementById("agedob").value;
+  var cat = document.getElementById("agecat").value;
+  if (!dob) { toast("Date of Birth daalo!", "err"); return; }
+  var today = new Date(), birth = new Date(dob);
+  var yrs = today.getFullYear() - birth.getFullYear();
+  var m = today.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) yrs--;
+  var cuts = {general:{min:18,max:27},obc:{min:18,max:30},sc:{min:18,max:32},exsm:{min:18,max:32}};
+  var cut = cuts[cat] || cuts.general;
+  var jobs = [];
+  if (yrs>=18&&yrs<=25) jobs.push("SSC GD Constable");
+  if (yrs>=18&&yrs<=27) jobs.push("BPSC Teacher");
+  if (yrs>=18&&yrs<=30) jobs.push("Bihar Police SI");
+  if (yrs>=21&&yrs<=27) jobs.push("UPSC Civil Services");
+  if (yrs>=18&&yrs<=35) jobs.push("Railway Group D");
+  if (yrs>=18&&yrs<=40) jobs.push("NHM Staff Nurse");
+  document.getElementById("ageval").textContent = yrs + " साल";
+  document.getElementById("agesub").textContent = (yrs>=cut.min&&yrs<=cut.max) ? "✅ "+cat.toUpperCase()+" eligible!" : "⚠️ Umra limit: "+cut.min+"-"+cut.max;
+  document.getElementById("agetags").innerHTML = jobs.map(function(j){return '<span class="rtag">'+j+"</span>";}).join("") || '<span class="rtag r">Koi eligible job nahi</span>';
+  document.getElementById("ageres").classList.add("show");
+});
+
+/* ============ SALARY CALCULATOR ============ */
+document.getElementById("sal-btn").addEventListener("click", function() {
+  var basic = parseInt(document.getElementById("sallvl").value) || 29200;
+  var city = document.getElementById("salcity").value;
+  var da = parseFloat(document.getElementById("salda").value) || 53;
+  var ta = parseInt(document.getElementById("salta").value) || 3600;
+  var hraR = city==="x"?0.27:city==="y"?0.18:0.09;
+  var daA = Math.round(basic*da/100);
+  var hraA = Math.round(basic*hraR);
+  var gross = basic+daA+hraA+ta;
+  var nps = Math.round(basic*0.10);
+  var inHand = gross-nps;
+  document.getElementById("salval").textContent = "₹"+inHand.toLocaleString("en-IN")+" / month";
+  document.getElementById("salbd").innerHTML = [
+    ["Basic","₹"+basic.toLocaleString("en-IN")],
+    ["DA ("+da+"%)","₹"+daA.toLocaleString("en-IN")],
+    ["HRA","₹"+hraA.toLocaleString("en-IN")],
+    ["TA","₹"+ta.toLocaleString("en-IN")],
+    ["NPS (−)","₹"+nps.toLocaleString("en-IN")],
+    ["Gross","₹"+gross.toLocaleString("en-IN")]
+  ].map(function(r){return '<div style="background:var(--bg2);border-radius:8px;padding:8px 10px"><div style="font-size:11px;color:var(--mu)">'+r[0]+'</div><div style="font-weight:700;color:var(--tx);font-size:13px">'+r[1]+"</div></div>";}).join("");
+  document.getElementById("salres").classList.add("show");
+});
+
+/* ============ JOB TRACKER ============ */
+document.getElementById("trk-btn").addEventListener("click", function() {
+  var job = document.getElementById("trjob").value.trim();
+  var dept = document.getElementById("trdept").value.trim();
+  var date = document.getElementById("trdate").value;
+  var st = document.getElementById("trst").value;
+  if (!job) { toast("Job title daalo!", "err"); return; }
+  trkItems.push({id:Date.now(), job:job, dept:dept||"-", date:date, st:st});
+  localStorage.setItem("mc_trk", JSON.stringify(trkItems));
+  document.getElementById("trjob").value = "";
+  document.getElementById("trdept").value = "";
+  renderTracker();
+  toast("✅ Job tracker mein add!");
+});
+function renderTracker() {
+  var el = document.getElementById("trklist");
+  if (!el) return;
+  if (!trkItems.length) { el.innerHTML = '<div style="text-align:center;color:var(--mu);font-size:13px;padding:14px">Abhi koi job track nahi.</div>'; return; }
+  var cls = {a:"sta",r:"str",i:"sti",x:"stx"};
+  var lbl = {a:"Applied",r:"Result",i:"Interview",x:"Rejected"};
+  el.innerHTML = trkItems.map(function(t) {
+    return '<div class="trki"><div><div class="trkj">'+t.job+'</div><div class="trkd">'+t.dept+" | "+(t.date||"")+"</div></div>" +
+      '<span class="tst '+(cls[t.st]||"sta")+'">'+(lbl[t.st]||t.st)+"</span>" +
+      '<button class="trkdel" data-tid="'+t.id+'">✕</button></div>';
+  }).join("");
+  el.querySelectorAll(".trkdel").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var id = parseInt(this.getAttribute("data-tid"));
+      trkItems = trkItems.filter(function(t) { return t.id !== id; });
+      localStorage.setItem("mc_trk", JSON.stringify(trkItems));
+      renderTracker();
+    });
+  });
+}
+renderTracker();
+
+/* ============ QUIZ ============ */
+document.getElementById("qz-start-btn").addEventListener("click", startQuiz);
+document.getElementById("qz-next-btn").addEventListener("click", function() { qzIdx++; showQ(); });
+document.getElementById("qz-retry-btn").addEventListener("click", startQuiz);
+function startQuiz() {
+  var topic = document.getElementById("qztopic").value;
+  qzQs = QB[topic] || QB.gk;
+  qzIdx = 0; qzScore = 0; qzDone = false;
+  document.getElementById("qzarea").style.display = "block";
+  document.getElementById("qzresult").style.display = "none";
+  document.getElementById("qz-start-btn").style.display = "none";
+  showQ();
+}
+function showQ() {
+  if (qzIdx >= qzQs.length) { endQuiz(); return; }
+  qzDone = false;
+  var q = qzQs[qzIdx];
+  document.getElementById("qzq").textContent = q.q;
+  document.getElementById("qzprog").textContent = "Q "+(qzIdx+1)+"/"+qzQs.length;
+  document.getElementById("qzsc").textContent = "Score: "+qzScore;
+  document.getElementById("qzbar").style.width = (((qzIdx+1)/qzQs.length)*100)+"%";
+  document.getElementById("qz-next-btn").style.display = "none";
+  var opts = document.getElementById("qzopts");
+  opts.innerHTML = q.o.map(function(o,i) { return '<button class="qzopt" data-qi="'+i+'">'+o+"</button>"; }).join("");
+  opts.querySelectorAll(".qzopt").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      if (qzDone) return;
+      qzDone = true;
+      var idx = parseInt(this.getAttribute("data-qi"));
+      opts.querySelectorAll(".qzopt").forEach(function(b,ii) {
+        if (ii === q.a) b.classList.add("ok");
+        else if (ii === idx) b.classList.add("ng");
+        b.disabled = true;
+      });
+      if (idx === q.a) qzScore++;
+      document.getElementById("qzsc").textContent = "Score: "+qzScore;
+      document.getElementById("qz-next-btn").style.display = "block";
+    });
+  });
+}
+function endQuiz() {
+  document.getElementById("qzarea").style.display = "none";
+  document.getElementById("qzresult").style.display = "block";
+  document.getElementById("qz-start-btn").style.display = "block";
+  var pct = Math.round((qzScore/qzQs.length)*100);
+  document.getElementById("qzfinsc").textContent = qzScore+"/"+qzQs.length+" ("+pct+"%)";
+  document.getElementById("qzemoji").textContent = pct>=80?"🏆":pct>=60?"😊":pct>=40?"😐":"😢";
+  document.getElementById("qzmsg").textContent = pct>=80?"Excellent! Bahut badhiya!":pct>=60?"Good! Aur practice karo.":pct>=40?"Average. Mehnat karo.":"Zyada study karo!";
+}
+
+/* ============ AI RESUME ============ */
+document.getElementById("res-btn").addEventListener("click", function() {
+  var name = document.getElementById("resname").value.trim();
+  var phone = document.getElementById("resphone").value.trim();
+  var qual = document.getElementById("resqual").value;
+  var job = document.getElementById("resjob").value.trim();
+  var skills = document.getElementById("resskills").value.trim();
+  var addr = document.getElementById("resaddr").value.trim();
+  if (!name||!phone) { toast("Name aur Phone required!", "err"); return; }
+  var btn = this; btn.textContent = "⏳ Generating..."; btn.disabled = true;
+  fetch(AURL, {method:"POST", headers:AHDR, body:JSON.stringify({
+    model:"claude-sonnet-4-20250514", max_tokens:1000,
+    system:"You are a professional resume writer for Indian government jobs. Create a clean HTML resume with inline styles only. Output ONLY the HTML, no markdown.",
+    messages:[{role:"user",content:"Resume: Name="+name+", Phone="+phone+", Qual="+qual+", Job="+(job||"Govt Job")+", Skills="+(skills||"Computer,Communication")+", Address="+(addr||"Bihar")+". Sections: Personal Info, Objective, Education, Skills, Declaration. Font: Arial."}]
+  })}).then(function(r){return r.json();}).then(function(d) {
+    var html = d.content.map(function(c){return c.text||"";}).join("");
+    var out = document.getElementById("resout");
+    out.style.display = "block";
+    out.innerHTML = '<div style="border:1px solid var(--bd);border-radius:12px;overflow:hidden">' +
+      '<div style="padding:9px 13px;background:var(--bg2);border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center">' +
+      '<span style="font-weight:700;color:var(--tx);font-size:13px">📄 Resume Ready!</span>' +
+      '<button id="printresbtn" class="btnp" style="padding:5px 12px;font-size:12px">🖨️ Print/PDF</button></div>' +
+      '<div id="resprv" style="padding:14px;background:#fff">'+html+"</div></div>";
+    document.getElementById("printresbtn").addEventListener("click", function() {
+      var w = window.open("","_blank");
+      w.document.write("<html><head><title>Resume</title></head><body>"+document.getElementById("resprv").innerHTML+"</body></html>");
+      w.document.close(); w.print();
+    });
+    btn.textContent = "🤖 AI Resume Generate करें"; btn.disabled = false;
+  }).catch(function() { toast("Error! Check internet.", "err"); btn.textContent = "🤖 AI Resume Generate करें"; btn.disabled = false; });
+});
+
+/* ============ JOB MATCH AI ============ */
+document.getElementById("rec-btn").addEventListener("click", function() {
+  var qual = document.getElementById("recqual").value;
+  var age = document.getElementById("recage").value;
+  var cat = document.getElementById("reccat").value;
+  var field = document.getElementById("recfield").value;
+  if (!age) { toast("Apni age daalo!", "err"); return; }
+  var btn = this; btn.textContent = "⏳ Searching..."; btn.disabled = true;
+  fetch(AURL, {method:"POST", headers:AHDR, body:JSON.stringify({
+    model:"claude-sonnet-4-20250514", max_tokens:800,
+    system:"You are a Sarkari Naukri expert. Respond ONLY with valid JSON array, no markdown.",
+    messages:[{role:"user",content:"Suggest 5 govt jobs for: Qual="+qual+", Age="+age+", Cat="+cat+", Field="+field+". JSON: [{\"title\":\"\",\"dept\":\"\",\"eligibility\":\"\",\"salary\":\"\",\"tip\":\"\"}]"}]
+  })}).then(function(r){return r.json();}).then(function(d) {
+    var txt = d.content.map(function(c){return c.text||"";}).join("").replace(/```json|```/g,"").trim();
+    var jobs = JSON.parse(txt);
+    var out = document.getElementById("recout"); out.style.display = "block";
+    out.innerHTML = "<div style=\"margin-bottom:9px;font-weight:700;color:var(--tx);font-size:14px\">🎯 "+jobs.length+" Matching Jobs!</div>" +
+      jobs.map(function(j) {
+        return "<div style=\"background:var(--bg);border:1px solid var(--bd);border-radius:11px;padding:13px;margin-bottom:9px\">" +
+          "<div style=\"font-weight:700;color:var(--tx);font-size:14px\">"+j.title+"</div>" +
+          "<div style=\"font-size:12px;color:var(--sf);margin:3px 0\">"+j.dept+" | "+j.salary+"</div>" +
+          "<div style=\"font-size:12px;color:var(--mu)\">"+j.eligibility+"</div>" +
+          "<div style=\"font-size:12px;color:var(--tl);margin-top:5px\">💡 "+j.tip+"</div></div>";
+      }).join("");
+    btn.textContent = "🔍 Jobs Dhundho"; btn.disabled = false;
+  }).catch(function() { toast("Error! Check internet.", "err"); btn.textContent = "🔍 Jobs Dhundho"; btn.disabled = false; });
+});
+
+/* ============ CUTOFF MARKS ============ */
+document.getElementById("cut-btn").addEventListener("click", function() {
+  var key = document.getElementById("cutexam").value;
+  var data = CUTOFF[key];
+  var out = document.getElementById("cutout"); out.style.display = "block";
+  out.innerHTML = "<div style=\"font-weight:700;color:var(--tx);font-size:14px;margin-bottom:10px\">"+data.name+" — Cut-off Marks</div>" +
+    "<div class=\"cutg\">"+data.cats.map(function(c) {
+      return "<div class=\"cutc\"><div class=\"cutex\">"+c.c+"</div><div class=\"cutr\"><span class=\"cutcat\">Cut-off</span><span class=\"cutmk\">"+c.m+"</span></div></div>";
+    }).join("")+"</div>";
+});
+
+/* ============ EXAM REMINDER ============ */
+document.getElementById("rem-btn").addEventListener("click", function() {
+  var exam = document.getElementById("remexam").value.trim();
+  var date = document.getElementById("remdate").value;
+  if (!exam||!date) { toast("Exam name aur date daalo!", "err"); return; }
+  reminders.push({id:Date.now(), exam:exam, date:date});
+  localStorage.setItem("mc_rem", JSON.stringify(reminders));
+  document.getElementById("remexam").value = "";
+  document.getElementById("remdate").value = "";
+  renderReminders();
+  toast("⏰ Reminder set!");
+});
+function renderReminders() {
+  var el = document.getElementById("remlist");
+  if (!el) return;
+  if (!reminders.length) { el.innerHTML = '<div style="text-align:center;color:var(--mu);font-size:13px;padding:14px">Koi reminder nahi.</div>'; return; }
+  var today = new Date();
+  el.innerHTML = reminders.map(function(r) {
+    var d = new Date(r.date);
+    var diff = Math.ceil((d - today)/(1000*60*60*24));
+    var status = diff<0?"✅ Ho gaya":diff===0?"🔴 Aaj!":diff<=7?"🟡 "+diff+" din":"🟢 "+diff+" din baaki";
+    return "<div class=\"remi\"><div><div class=\"remex\">"+r.exam+"</div><div class=\"remdt\">📅 "+r.date+" — "+status+"</div></div>" +
+      "<button class=\"remdl\" data-rid=\""+r.id+"\">✕</button></div>";
+  }).join("");
+  el.querySelectorAll(".remdl").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var id = parseInt(this.getAttribute("data-rid"));
+      reminders = reminders.filter(function(r) { return r.id !== id; });
+      localStorage.setItem("mc_rem", JSON.stringify(reminders));
+      renderReminders();
+    });
+  });
+}
+renderReminders();
+
+/* ============ AI INTERVIEW PREP ============ */
+document.getElementById("itv-btn").addEventListener("click", function() {
+  var job = document.getElementById("itvjob").value.trim();
+  var qual = document.getElementById("itvqual").value;
+  if (!job) { toast("Job title daalo!", "err"); return; }
+  var btn = this; btn.textContent = "⏳ Generating..."; btn.disabled = true;
+  fetch(AURL, {method:"POST", headers:AHDR, body:JSON.stringify({
+    model:"claude-sonnet-4-20250514", max_tokens:1000,
+    system:"You are an Indian govt job interview expert. Give practical interview questions in Hinglish. Respond ONLY with JSON array, no markdown.",
+    messages:[{role:"user",content:"Give 8 interview questions for: Post="+job+", Qual="+qual+". JSON: [{\"q\":\"\",\"tip\":\"\"}]"}]
+  })}).then(function(r){return r.json();}).then(function(d) {
+    var txt = d.content.map(function(c){return c.text||"";}).join("").replace(/```json|```/g,"").trim();
+    var qs = JSON.parse(txt);
+    var out = document.getElementById("itvout"); out.style.display = "block";
+    out.innerHTML = "<div style=\"font-weight:700;color:var(--tx);font-size:14px;margin-bottom:12px\">🎤 "+job+" — Expected Questions</div>" +
+      qs.map(function(q,i) {
+        return "<div style=\"background:var(--bg);border:1px solid var(--bd);border-radius:11px;padding:13px;margin-bottom:9px\">" +
+          "<div style=\"font-weight:600;color:var(--tx);font-size:13px\">Q"+(i+1)+". "+q.q+"</div>" +
+          "<div style=\"font-size:12px;color:var(--tl);margin-top:6px\">💡 "+q.tip+"</div></div>";
+      }).join("");
+    btn.textContent = "🎤 Questions Generate करें"; btn.disabled = false;
+  }).catch(function() { toast("Error! Check internet.", "err"); btn.textContent = "🎤 Questions Generate करें"; btn.disabled = false; });
+});
+
+/* ============ SUBSCRIBE ============ */
+document.getElementById("sub-btn").addEventListener("click", function() {
+  var type = document.getElementById("subtype").value;
+  var val = document.getElementById("subinp").value.trim();
+  var msg = document.getElementById("submsg");
+  if (!val) { msg.textContent = "⚠️ Number ya Email daalo!"; return; }
+  db.ref("subscribers").push({type:type, value:val, timestamp:Date.now()}).then(function() {
+    msg.textContent = "✅ Subscribe ho gaye!";
+    document.getElementById("subinp").value = "";
+  }).catch(function() { msg.textContent = "❌ Error. Dobara try karein."; });
+});
+
+/* ============ CONTACT FORM ============ */
+document.getElementById("form-btn").addEventListener("click", function() {
+  var name = document.getElementById("fname").value.trim();
+  var phone = document.getElementById("fphone").value.trim();
+  var srv = document.getElementById("fsrv").value;
+  var msg = document.getElementById("fmsg").value.trim();
+  var el = document.getElementById("formmsg");
+  if (!name||!phone) { el.textContent = "⚠️ Name aur Phone required!"; return; }
+  db.ref("messages").push({name:name, phone:phone, service:srv, message:msg, timestamp:Date.now(), read:false}).then(function() {
+    el.textContent = "✅ Message send ho gaya!";
+    document.getElementById("fname").value = "";
+    document.getElementById("fphone").value = "";
+    document.getElementById("fmsg").value = "";
+  }).catch(function() { el.textContent = "❌ Error aaya."; });
+});
+
+})(); /* END IIFE */
+</script>
+</body>
+</html>

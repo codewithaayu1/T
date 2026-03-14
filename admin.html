@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manu Cyber Admin — Garhani</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--sf:#FF6B00;--gd:#FFB300;--nv:#0D1B2A;--nv2:#1A2E44;--tl:#00B4D8;--gr:#22C55E;--rd:#EF4444;--pu:#8B5CF6;--bg:#0F1923;--bg2:#162130;--bg3:#1E2D40;--bd:rgba(255,255,255,0.08);--tx:#E2E8F0;--mu:#7B8FA6;--cd:#1A2A3A;--r:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Hind',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;display:flex}
+#loginsc{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999}
+.lbox{background:var(--cd);border:1px solid var(--bd);border-radius:22px;padding:44px 38px;width:100%;max-width:390px;text-align:center}
+.lbox h2{font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:800;color:#fff;margin:10px 0 4px}
+.lbox p{font-size:13px;color:var(--mu);margin-bottom:24px}
+.lin{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--bd);border-radius:9px;padding:11px 14px;font-size:14px;color:#fff;font-family:'Hind',sans-serif;outline:none;margin-bottom:10px;transition:border-color .2s}
+.lin:focus{border-color:var(--sf)}
+.lbtn{width:100%;background:linear-gradient(135deg,var(--sf),var(--gd));color:#fff;border:none;padding:13px;border-radius:11px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Hind',sans-serif}
+.lerr{color:var(--rd);font-size:13px;margin-top:8px}
+#sb{width:230px;min-height:100vh;background:var(--bg2);border-right:1px solid var(--bd);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;z-index:100}
+.sblogo{padding:18px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:9px}
+.sblic{width:34px;height:34px;background:linear-gradient(135deg,var(--sf),var(--gd));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.sbltx{font-family:'Baloo 2',sans-serif;font-size:14px;font-weight:800;color:#fff}
+.sbltx span{color:var(--gd)}
+.sbsec{padding:14px 11px 6px;font-size:9px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1.5px}
+.navi{display:flex;align-items:center;gap:9px;padding:9px 14px;border-radius:9px;cursor:pointer;margin:1px 9px;font-size:13px;font-weight:500;color:var(--mu);background:none;border:none;width:calc(100% - 18px);text-align:left;font-family:'Hind',sans-serif;transition:all .2s}
+.navi:hover{background:rgba(255,255,255,.05);color:var(--tx)}
+.navi.on{background:linear-gradient(135deg,rgba(255,107,0,.18),rgba(255,179,0,.08));color:var(--sf)}
+.niic{font-size:16px;width:19px;text-align:center}
+.sbbot{margin-top:auto;padding:14px}
+.loutbtn{width:100%;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:var(--rd);border-radius:9px;padding:9px;cursor:pointer;font-size:13px;font-weight:600;font-family:'Hind',sans-serif}
+#main{margin-left:230px;flex:1;min-height:100vh}
+.topbar{background:var(--bg2);border-bottom:1px solid var(--bd);padding:14px 26px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.tbtitle{font-family:'Baloo 2',sans-serif;font-size:17px;font-weight:700;color:#fff}
+.tbr{display:flex;align-items:center;gap:10px}
+.abdg{background:rgba(255,107,0,.15);border:1px solid rgba(255,107,0,.3);color:var(--sf);padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700}
+.livdot{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--gr)}
+.livdot::before{content:'';width:7px;height:7px;background:var(--gr);border-radius:50%;animation:pl 1.5s infinite}
+@keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
+.content{padding:22px 26px}
+.page{display:none}.page.on{display:block}
+.stcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:22px}
+.stc{background:var(--cd);border:1px solid var(--bd);border-radius:var(--r);padding:18px}
+.stcic{font-size:26px;margin-bottom:7px}
+.stcn{font-family:'Baloo 2',sans-serif;font-size:26px;font-weight:800;color:#fff}
+.stcl{font-size:11px;color:var(--mu);margin-top:1px}
+.acd{background:var(--cd);border:1px solid var(--bd);border-radius:var(--r);margin-bottom:18px;overflow:hidden}
+.acdh{padding:16px 20px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.acdttl{font-family:'Baloo 2',sans-serif;font-size:14px;font-weight:700;color:#fff}
+.acdb{padding:20px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:11px;font-weight:600;color:var(--mu);margin-bottom:5px;text-transform:uppercase;letter-spacing:.8px}
+.fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:9px;padding:10px 12px;font-size:13px;color:var(--tx);font-family:'Hind',sans-serif;outline:none;transition:border-color .2s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--sf)}
+.fg textarea{resize:vertical;min-height:75px}
+.fg select option{background:var(--bg2)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.btn{padding:9px 16px;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer;border:none;font-family:'Hind',sans-serif;display:inline-flex;align-items:center;gap:5px;transition:all .2s}
+.bsv{background:linear-gradient(135deg,var(--sf),var(--gd));color:#fff}
+.bgr{background:rgba(34,197,94,.15);color:var(--gr);border:1px solid rgba(34,197,94,.3)}
+.bgr:hover{background:var(--gr);color:#fff}
+.brd{background:rgba(239,68,68,.1);color:var(--rd);border:1px solid rgba(239,68,68,.2)}
+.brd:hover{background:var(--rd);color:#fff}
+.bpu{background:rgba(139,92,246,.15);color:var(--pu);border:1px solid rgba(139,92,246,.3)}
+.bpu:hover{background:var(--pu);color:#fff}
+.bsm{padding:5px 11px;font-size:11px}
+.bbl{width:100%;justify-content:center}
+.togrow{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--bd)}
+.togrow:last-child{border-bottom:none}
+.toglbl{font-size:13px;font-weight:500;color:var(--tx)}
+.togsub{font-size:11px;color:var(--mu);margin-top:1px}
+.tog{position:relative;display:inline-block;width:42px;height:23px}
+.tog input{opacity:0;width:0;height:0}
+.togsl{position:absolute;inset:0;background:rgba(255,255,255,.1);border-radius:50px;cursor:pointer;transition:.3s}
+.togsl::before{content:'';position:absolute;height:17px;width:17px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.3s}
+.tog input:checked + .togsl{background:linear-gradient(135deg,var(--sf),var(--gd))}
+.tog input:checked + .togsl::before{transform:translateX(19px)}
+.ntbl{width:100%;border-collapse:collapse}
+.ntbl th{text-align:left;padding:9px 12px;font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--bd)}
+.ntbl td{padding:10px 12px;font-size:12px;border-bottom:1px solid var(--bd);vertical-align:top}
+.ntbl tr:last-child td{border-bottom:none}
+.sbdg{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700}
+.sp{background:rgba(251,191,36,.15);color:#FBB924}
+.sa{background:rgba(34,197,94,.15);color:var(--gr)}
+.mcrd{background:var(--bg3);border-radius:11px;padding:14px;margin-bottom:10px;border:1px solid var(--bd)}
+.mcrd.unread{border-left:3px solid var(--sf)}
+.mname{font-weight:700;color:#fff;font-size:13px}
+.mphone{color:var(--sf);font-size:12px}
+.msrv{display:inline-block;background:rgba(255,107,0,.15);color:var(--sf);padding:2px 7px;border-radius:5px;font-size:10px;font-weight:600;margin-bottom:5px}
+.mtxt{font-size:12px;color:var(--mu);line-height:1.5}
+.mtime{font-size:10px;color:var(--mu);margin-top:5px}
+.srvedit{background:var(--bg3);border:1px solid var(--bd);border-radius:11px;padding:14px;margin-bottom:10px}
+.aiitem{background:var(--bg3);border:1px solid var(--bd);border-radius:11px;padding:14px;margin-bottom:10px}
+.aittl{font-weight:700;color:#fff;font-size:13px;margin-bottom:5px}
+.aidesc{font-size:12px;color:var(--mu);line-height:1.5;margin-bottom:9px}
+.aicat{display:inline-block;background:rgba(139,92,246,.15);color:var(--pu);padding:2px 7px;border-radius:5px;font-size:10px;font-weight:600}
+.aild{text-align:center;padding:28px;color:var(--mu)}
+.aisp{display:inline-block;width:24px;height:24px;border:3px solid rgba(255,255,255,.1);border-top-color:var(--pu);border-radius:50%;animation:sp .8s linear infinite;margin-bottom:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+#toast{position:fixed;bottom:22px;right:22px;background:var(--gr);color:#fff;padding:10px 16px;border-radius:11px;font-size:13px;font-weight:600;z-index:99999;transform:translateY(60px);opacity:0;transition:all .3s;max-width:270px;pointer-events:none}
+#toast.show{transform:translateY(0);opacity:1}
+#toast.err{background:var(--rd)}
+@media(max-width:768px){#sb{display:none}#main{margin-left:0}.r2,.r3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="loginsc">
+  <div class="lbox">
+    <div style="font-size:44px">🔐</div>
+    <h2>Admin Login</h2>
+    <p>Manu Cyber Cafe — GOD MODE Panel</p>
+    <input class="lin" id="lu" type="text" placeholder="Username">
+    <input class="lin" id="lp" type="password" placeholder="Password">
+    <button class="lbtn" id="login-btn">🚀 Login करें</button>
+    <div class="lerr" id="lerr"></div>
+  </div>
+</div>
+
+<div id="sb">
+  <div class="sblogo"><div class="sblic">💻</div><div class="sbltx">Manu <span>Admin</span></div></div>
+  <div class="sbsec">Dashboard</div>
+  <button class="navi on" data-pg="dash"><span class="niic">📊</span> Overview</button>
+  <div class="sbsec">Website Control</div>
+  <button class="navi" data-pg="hero"><span class="niic">🏠</span> Hero Section</button>
+  <button class="navi" data-pg="services"><span class="niic">⚙️</span> Services</button>
+  <button class="navi" data-pg="about"><span class="niic">ℹ️</span> About</button>
+  <button class="navi" data-pg="contact"><span class="niic">📞</span> Contact</button>
+  <button class="navi" data-pg="notice"><span class="niic">📢</span> Notice Bar</button>
+  <button class="navi" data-pg="popup"><span class="niic">🎉</span> Popup</button>
+  <div class="sbsec">News</div>
+  <button class="navi" data-pg="ainews"><span class="niic">🤖</span> AI News Fetch</button>
+  <button class="navi" data-pg="newslist"><span class="niic">📰</span> Manage News</button>
+  <button class="navi" data-pg="addnews"><span class="niic">➕</span> Add News</button>
+  <div class="sbsec">Inbox</div>
+  <button class="navi" data-pg="msgs"><span class="niic">💬</span> Messages <span id="msgbdg" style="background:var(--sf);color:#fff;font-size:9px;padding:2px 6px;border-radius:9px;margin-left:3px;display:none">0</span></button>
+  <button class="navi" data-pg="subs"><span class="niic">🔔</span> Subscribers</button>
+  <div class="sbbot"><button class="loutbtn" id="lout-btn">🚪 Logout</button></div>
+</div>
+
+<div id="main">
+  <div class="topbar">
+    <div class="tbtitle" id="pgtitle">📊 Dashboard</div>
+    <div class="tbr"><div class="livdot">Live</div><div class="abdg">GOD MODE 🔥</div></div>
+  </div>
+  <div class="content">
+
+    <div class="page on" id="pg-dash">
+      <div class="stcards">
+        <div class="stc"><div class="stcic">📰</div><div class="stcn" id="ds-total">0</div><div class="stcl">Total News</div></div>
+        <div class="stc"><div class="stcic">✅</div><div class="stcn" id="ds-appr">0</div><div class="stcl">Approved</div></div>
+        <div class="stc"><div class="stcic">⏳</div><div class="stcn" id="ds-pend">0</div><div class="stcl">Pending</div></div>
+        <div class="stc"><div class="stcic">💬</div><div class="stcn" id="ds-msgs">0</div><div class="stcl">Messages</div></div>
+        <div class="stc"><div class="stcic">🔔</div><div class="stcn" id="ds-subs">0</div><div class="stcl">Subscribers</div></div>
+      </div>
+      <div class="acd">
+        <div class="acdh"><div class="acdttl">⚡ Quick Actions</div></div>
+        <div class="acdb" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px">
+          <button class="btn bpu bbl" data-goto="ainews">🤖 AI News</button>
+          <button class="btn bsv bbl" data-goto="addnews">➕ Add News</button>
+          <button class="btn bgr bbl" data-goto="newslist">📋 Manage</button>
+          <button class="btn bbl" style="background:rgba(0,180,216,.15);color:var(--tl);border:1px solid rgba(0,180,216,.3)" data-goto="msgs">💬 Messages</button>
+        </div>
+      </div>
+      <div class="acd">
+        <div class="acdh"><div class="acdttl">⏳ Pending Approval</div></div>
+        <div class="acdb" id="dash-pend">Loading...</div>
+      </div>
+    </div>
+
+    <div class="page" id="pg-hero">
+      <div class="acd"><div class="acdh"><div class="acdttl">🏠 Hero Section</div></div><div class="acdb">
+        <div class="fg"><label>Badge Text</label><input id="h-badge" placeholder="🟢 अभी खुला है"></div>
+        <div class="fg"><label>Main Title</label><input id="h-title"></div>
+        <div class="fg"><label>Subtitle</label><textarea id="h-sub"></textarea></div>
+        <div class="r3">
+          <div class="fg"><label>Stat 1</label><input id="h-s1" placeholder="5000+"></div>
+          <div class="fg"><label>Stat 2</label><input id="h-s2" placeholder="10+"></div>
+          <div class="fg"><label>Stat 3</label><input id="h-s3" placeholder="20+"></div>
+        </div>
+        <button class="btn bsv" id="save-hero">💾 Save Hero</button>
+      </div></div>
+    </div>
+
+    <div class="page" id="pg-services">
+      <div class="acd"><div class="acdh"><div class="acdttl">⚙️ Services</div><button class="btn bgr bsm" id="add-srv">➕ Add</button></div>
+      <div class="acdb"><div id="srv-editor"></div><button class="btn bsv" id="save-srv" style="margin-top:8px">💾 Save All</button></div></div>
+    </div>
+
+    <div class="page" id="pg-about">
+      <div class="acd"><div class="acdh"><div class="acdttl">ℹ️ About</div></div><div class="acdb">
+        <div class="fg"><label>Title</label><input id="ab-title"></div>
+        <div class="fg"><label>Description</label><textarea id="ab-txt" style="min-height:110px"></textarea></div>
+        <div class="fg"><label>Features (comma separated)</label><input id="ab-feats"></div>
+        <button class="btn bsv" id="save-about">💾 Save About</button>
+      </div></div>
+    </div>
+
+    <div class="page" id="pg-contact">
+      <div class="acd"><div class="acdh"><div class="acdttl">📞 Contact Info</div></div><div class="acdb">
+        <div class="r2"><div class="fg"><label>Address</label><input id="c-addr"></div><div class="fg"><label>Phone</label><input id="c-phone"></div></div>
+        <div class="r2"><div class="fg"><label>Email</label><input id="c-email"></div><div class="fg"><label>Timing</label><input id="c-time"></div></div>
+        <div class="r2"><div class="fg"><label>WhatsApp (digits only)</label><input id="c-wa"></div><div class="fg"><label>Sub-text</label><input id="c-sub"></div></div>
+        <button class="btn bsv" id="save-ct">💾 Save Contact</button>
+      </div></div>
+    </div>
+
+    <div class="page" id="pg-notice">
+      <div class="acd"><div class="acdh"><div class="acdttl">📢 Notice Bar</div></div><div class="acdb">
+        <div class="togrow"><div><div class="toglbl">Notice Bar Active</div><div class="togsub">Scrolling notice dikhao</div></div><label class="tog"><input type="checkbox" id="notice-active"><div class="togsl"></div></label></div>
+        <div class="fg" style="margin-top:14px"><label>Notice Text</label><input id="notice-txt" placeholder="🎉 Manu Cyber में आपका स्वागत है!"></div>
+        <button class="btn bsv" id="save-notice">💾 Save Notice</button>
+      </div></div>
+    </div>
+
+    <div class="page" id="pg-popup">
+      <div class="acd"><div class="acdh"><div class="acdttl">🎉 Welcome Popup</div></div><div class="acdb">
+        <div class="togrow"><div><div class="toglbl">Popup Active</div></div><label class="tog"><input type="checkbox" id="popup-active"><div class="togsl"></div></label></div>
+        <div class="r2" style="margin-top:14px"><div class="fg"><label>Emoji</label><input id="p-emoji" placeholder="🎉"></div><div class="fg"><label>Title</label><input id="p-title" placeholder="Welcome!"></div></div>
+        <div class="fg"><label>Message</label><textarea id="p-msg"></textarea></div>
+        <button class="btn bsv" id="save-popup">💾 Save Popup</button>
+      </div></div>
+    </div>
+
+    <div class="page" id="pg-ainews">
+      <div class="acd"><div class="acdh"><div class="acdttl">🤖 AI News Fetcher</div></div><div class="acdb">
+        <div class="r2">
+          <div class="fg"><label>Topic</label><select id="ai-topic">
+            <option value="latest education exam India Bihar 2025">📚 Education & Exams</option>
+            <option value="sarkari naukri govt jobs India Bihar 2025">💼 Sarkari Naukri</option>
+            <option value="Bihar board CBSE board result 2025">📋 Board Results</option>
+            <option value="scholarship scheme students India 2025">🏆 Scholarships</option>
+            <option value="UPSC SSC Railway police job 2025">🚂 Railway/SSC/UPSC</option>
+            <option value="custom">✏️ Custom</option>
+          </select></div>
+          <div class="fg"><label>Kitni news?</label><select id="ai-count"><option value="3">3</option><option value="5" selected>5</option><option value="8">8</option></select></div>
+        </div>
+        <div class="fg" id="ai-custom-grp" style="display:none"><label>Custom Topic</label><input id="ai-custom" placeholder="Apna topic..."></div>
+        <button class="btn bpu bbl" id="ai-fetch-btn">🤖 AI se News Generate karo</button>
+        <div id="ai-results" style="margin-top:14px"></div>
+      </div></div>
+    </div>
+
+    <div class="page" id="pg-newslist">
+      <div class="acd"><div class="acdh"><div class="acdttl">📰 All News</div><button class="btn brd bsm" id="del-rej-btn">🗑 Pending Hatao</button></div>
+      <div class="acdb" style="overflow-x:auto">
+        <table class="ntbl"><thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+        <tbody id="news-tbody"></tbody></table>
+      </div></div>
+    </div>
+
+    <div class="page" id="pg-addnews">
+      <div class="acd"><div class="acdh"><div class="acdttl">➕ Add News Manually</div></div><div class="acdb">
+        <div class="fg"><label>Title</label><input id="an-title" placeholder="News ka title..."></div>
+        <div class="r2">
+          <div class="fg"><label>Category</label><select id="an-cat"><option>Education</option><option>Sarkari Naukri</option><option>Exam</option><option>Result</option><option>Scholarship</option><option>General</option></select></div>
+          <div class="fg"><label>Source</label><input id="an-src" placeholder="NDTV, Jagran..."></div>
+        </div>
+        <div class="fg"><label>Description</label><textarea id="an-desc"></textarea></div>
+        <div class="r2"><div class="fg"><label>Link (optional)</label><input id="an-link" placeholder="https://..."></div><div class="fg"><label>Date</label><input id="an-date" type="date"></div></div>
+        <div class="togrow" style="margin-bottom:14px"><div><div class="toglbl">Direct Approve?</div></div><label class="tog"><input type="checkbox" id="an-appr"><div class="togsl"></div></label></div>
+        <button class="btn bsv" id="pub-news-btn">📤 Publish News</button>
+      </div></div>
+    </div>
+
+    <div class="page" id="pg-msgs">
+      <div class="acd"><div class="acdh"><div class="acdttl">💬 User Messages</div><button class="btn bgr bsm" id="mark-all-btn">✅ Mark All Read</button></div>
+      <div class="acdb" id="msgs-list">Loading...</div></div>
+    </div>
+
+    <div class="page" id="pg-subs">
+      <div class="acd"><div class="acdh"><div class="acdttl">🔔 Job Alert Subscribers</div></div>
+      <div class="acdb" style="overflow-x:auto">
+        <table class="ntbl"><thead><tr><th>Type</th><th>Contact</th><th>Date</th><th>Action</th></tr></thead>
+        <tbody id="subs-tbody"></tbody></table>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+<div id="toast"></div>
+
+<!-- Firebase FIRST, then our code -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script>
+(function() {
+"use strict";
+
+/* --- ALL VARS AT TOP --- */
+var db, loggedIn, srvList, toastTmr, aiNewsCache;
+loggedIn = false; srvList = []; toastTmr = null; aiNewsCache = [];
+
+var ADMIN_USER = "manucybercafe";
+var ADMIN_PASS = "manucyber";
+var AKEY = "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";
+var AURL = "https://api.anthropic.com/v1/messages";
+var AHDR = {"Content-Type":"application/json","x-api-key":AKEY,"anthropic-version":"2023-06-01"};
+
+var PGTTL = {
+  dash:"📊 Dashboard", hero:"🏠 Hero", services:"⚙️ Services",
+  about:"ℹ️ About", contact:"📞 Contact", notice:"📢 Notice Bar",
+  popup:"🎉 Popup", ainews:"🤖 AI News", newslist:"📰 Manage News",
+  addnews:"➕ Add News", msgs:"💬 Messages", subs:"🔔 Subscribers"
+};
+
+/* --- FIREBASE --- */
+var FC = {
+  apiKey:"AIzaSyAyn861FpQaTlgMtkr5TPQ7lyf6yrkiaMY",
+  authDomain:"manu-cyber.firebaseapp.com",
+  databaseURL:"https://manu-cyber-default-rtdb.firebaseio.com",
+  projectId:"manu-cyber",
+  storageBucket:"manu-cyber.firebasestorage.app",
+  messagingSenderId:"826700852129",
+  appId:"1:826700852129:web:7a0ed44535ae66e7e539e0"
+};
+firebase.initializeApp(FC);
+db = firebase.database();
+
+/* --- TOAST --- */
+function toast(msg, err) {
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "show" + (err ? " err" : "");
+  clearTimeout(toastTmr);
+  toastTmr = setTimeout(function() { t.className = ""; }, 3000);
+}
+
+/* --- LOGIN --- */
+document.getElementById("login-btn").addEventListener("click", doLogin);
+document.getElementById("lp").addEventListener("keydown", function(e) { if (e.key === "Enter") doLogin(); });
+document.getElementById("lu").addEventListener("keydown", function(e) { if (e.key === "Enter") doLogin(); });
+
+function doLogin() {
+  var u = document.getElementById("lu").value.trim();
+  var p = document.getElementById("lp").value.trim();
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    document.getElementById("loginsc").style.display = "none";
+    loggedIn = true;
+    initAdmin();
+  } else {
+    document.getElementById("lerr").textContent = "❌ Wrong credentials!";
+  }
+}
+
+document.getElementById("lout-btn").addEventListener("click", function() {
+  document.getElementById("loginsc").style.display = "flex";
+  loggedIn = false;
+});
+
+/* --- NAVIGATION --- */
+document.querySelectorAll(".navi[data-pg]").forEach(function(btn) {
+  btn.addEventListener("click", function() { showPage(this.getAttribute("data-pg"), this); });
+});
+document.querySelectorAll("[data-goto]").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    var pg = this.getAttribute("data-goto");
+    showPage(pg, document.querySelector(".navi[data-pg='" + pg + "']"));
+  });
+});
+
+function showPage(id, btn) {
+  document.querySelectorAll(".page").forEach(function(p) { p.classList.remove("on"); });
+  document.querySelectorAll(".navi").forEach(function(b) { b.classList.remove("on"); });
+  var pg = document.getElementById("pg-" + id);
+  if (pg) pg.classList.add("on");
+  if (btn) btn.classList.add("on");
+  document.getElementById("pgtitle").textContent = PGTTL[id] || id;
+  if (id === "newslist") loadNewsList();
+  if (id === "msgs") loadMsgs();
+  if (id === "services") loadSrvEditor();
+  if (id === "hero") loadHeroForm();
+  if (id === "about") loadAboutForm();
+  if (id === "contact") loadCtForm();
+  if (id === "notice") loadNoticeForm();
+  if (id === "popup") loadPopupForm();
+  if (id === "subs") loadSubs();
+}
+
+/* --- INIT ADMIN --- */
+function initAdmin() {
+  db.ref("news").on("value", function(snap) {
+    var total = 0, appr = 0, pend = 0, html = "";
+    snap.forEach(function(c) {
+      var n = c.val(), k = c.key;
+      total++;
+      if (n.approved) { appr++; }
+      else {
+        pend++;
+        html += '<div class="aiitem"><div class="aittl">' + n.title + '</div>' +
+          '<div class="aidesc">' + (n.description||"") + '</div>' +
+          '<div style="display:flex;gap:7px;flex-wrap:wrap">' +
+          '<span class="aicat">' + (n.category||"Education") + '</span>' +
+          '<button class="btn bgr bsm" data-appr="' + k + '">✅ Approve</button>' +
+          '<button class="btn brd bsm" data-deln="' + k + '">🗑</button></div></div>';
+      }
+    });
+    document.getElementById("ds-total").textContent = total;
+    document.getElementById("ds-appr").textContent = appr;
+    document.getElementById("ds-pend").textContent = pend;
+    var dp = document.getElementById("dash-pend");
+    dp.innerHTML = html || '<div style="color:var(--mu);font-size:13px">✅ Koi pending nahi.</div>';
+    dp.querySelectorAll("[data-appr]").forEach(function(b) {
+      b.addEventListener("click", function() { approveNews(this.getAttribute("data-appr")); });
+    });
+    dp.querySelectorAll("[data-deln]").forEach(function(b) {
+      b.addEventListener("click", function() { deleteNews(this.getAttribute("data-deln")); });
+    });
+  });
+
+  db.ref("messages").on("value", function(snap) {
+    var count = 0;
+    snap.forEach(function(c) { if (!c.val().read) count++; });
+    document.getElementById("ds-msgs").textContent = snap.numChildren();
+    var bdg = document.getElementById("msgbdg");
+    if (count > 0) { bdg.textContent = count; bdg.style.display = "inline"; }
+    else { bdg.style.display = "none"; }
+  });
+
+  db.ref("subscribers").on("value", function(snap) {
+    document.getElementById("ds-subs").textContent = snap.numChildren();
+  });
+
+  document.getElementById("an-date").value = new Date().toISOString().split("T")[0];
+  setupAdminEvents();
+}
+
+/* --- ADMIN EVENTS --- */
+function setupAdminEvents() {
+  document.getElementById("save-hero").addEventListener("click", saveHero);
+  document.getElementById("add-srv").addEventListener("click", function() {
+    srvList.push({icon:"💻",name:"",desc:""});
+    renderSrvEditor();
+  });
+  document.getElementById("save-srv").addEventListener("click", saveServices);
+  document.getElementById("save-about").addEventListener("click", saveAbout);
+  document.getElementById("save-ct").addEventListener("click", saveContact);
+  document.getElementById("save-notice").addEventListener("click", saveNotice);
+  document.getElementById("save-popup").addEventListener("click", savePopup);
+  document.getElementById("ai-topic").addEventListener("change", function() {
+    document.getElementById("ai-custom-grp").style.display = this.value === "custom" ? "block" : "none";
+  });
+  document.getElementById("ai-fetch-btn").addEventListener("click", fetchAINews);
+  document.getElementById("del-rej-btn").addEventListener("click", function() {
+    if (!confirm("Sab unapproved news delete karein?")) return;
+    db.ref("news").once("value", function(snap) {
+      var upd = {};
+      snap.forEach(function(c) { if (!c.val().approved) upd["news/" + c.key] = null; });
+      db.ref().update(upd).then(function() { toast("✅ Deleted!"); loadNewsList(); });
+    });
+  });
+  document.getElementById("pub-news-btn").addEventListener("click", addNewsManual);
+  document.getElementById("mark-all-btn").addEventListener("click", markAllRead);
+}
+
+/* --- HERO --- */
+function loadHeroForm() {
+  db.ref("site/hero").once("value", function(snap) {
+    var d = snap.val() || {};
+    document.getElementById("h-badge").value = d.badge || "";
+    document.getElementById("h-title").value = d.title || "";
+    document.getElementById("h-sub").value = d.subtitle || "";
+    document.getElementById("h-s1").value = d.statC || "";
+    document.getElementById("h-s2").value = d.statY || "";
+    document.getElementById("h-s3").value = d.statS || "";
+  });
+}
+function saveHero() {
+  db.ref("site/hero").set({
+    badge: document.getElementById("h-badge").value,
+    title: document.getElementById("h-title").value,
+    subtitle: document.getElementById("h-sub").value,
+    statC: document.getElementById("h-s1").value,
+    statY: document.getElementById("h-s2").value,
+    statS: document.getElementById("h-s3").value
+  }).then(function() { toast("✅ Hero saved!"); }).catch(function() { toast("❌ Error!", true); });
+}
+
+/* --- SERVICES --- */
+function loadSrvEditor() {
+  db.ref("services").once("value", function(snap) {
+    srvList = snap.val() ? Object.values(snap.val()) : [
+      {icon:"🖨️",name:"Printing & Xerox",desc:"Black & White, Color printing."},
+      {icon:"🌐",name:"Internet Service",desc:"High-speed internet browsing."}
+    ];
+    renderSrvEditor();
+  });
+}
+function renderSrvEditor() {
+  var el = document.getElementById("srv-editor");
+  el.innerHTML = srvList.map(function(s, i) {
+    return '<div class="srvedit"><div style="display:grid;grid-template-columns:60px 1fr;gap:10px;align-items:start">' +
+      '<div class="fg"><label>Icon</label><input data-si="'+i+'" value="'+(s.icon||"💻")+'" style="text-align:center;font-size:18px"></div>' +
+      '<div><div class="fg"><label>Name</label><input data-sn="'+i+'" value="'+(s.name||"")+'"></div>' +
+      '<div class="fg"><label>Description</label><textarea data-sd="'+i+'">'+(s.desc||"")+"</textarea></div></div></div>" +
+      '<button class="btn brd bsm" data-srem="'+i+'">🗑 Remove</button></div>';
+  }).join("");
+  el.querySelectorAll("[data-si]").forEach(function(inp) { inp.addEventListener("input", function() { srvList[parseInt(this.getAttribute("data-si"))].icon = this.value; }); });
+  el.querySelectorAll("[data-sn]").forEach(function(inp) { inp.addEventListener("input", function() { srvList[parseInt(this.getAttribute("data-sn"))].name = this.value; }); });
+  el.querySelectorAll("[data-sd]").forEach(function(inp) { inp.addEventListener("input", function() { srvList[parseInt(this.getAttribute("data-sd"))].desc = this.value; }); });
+  el.querySelectorAll("[data-srem]").forEach(function(btn) { btn.addEventListener("click", function() { srvList.splice(parseInt(this.getAttribute("data-srem")), 1); renderSrvEditor(); }); });
+}
+function saveServices() {
+  var obj = {};
+  srvList.forEach(function(s, i) { obj["s" + i] = s; });
+  db.ref("services").set(obj).then(function() { toast("✅ Services saved!"); }).catch(function() { toast("❌ Error!", true); });
+}
+
+/* --- ABOUT --- */
+function loadAboutForm() {
+  db.ref("site/about").once("value", function(snap) {
+    var d = snap.val() || {};
+    document.getElementById("ab-title").value = d.title || "";
+    document.getElementById("ab-txt").value = d.text || "";
+    document.getElementById("ab-feats").value = d.features ? d.features.join(", ") : "";
+  });
+}
+function saveAbout() {
+  var feats = document.getElementById("ab-feats").value.split(",").map(function(f) { return f.trim(); }).filter(Boolean);
+  db.ref("site/about").set({title:document.getElementById("ab-title").value, text:document.getElementById("ab-txt").value, features:feats})
+    .then(function() { toast("✅ About saved!"); }).catch(function() { toast("❌ Error!", true); });
+}
+
+/* --- CONTACT --- */
+function loadCtForm() {
+  db.ref("site/contact").once("value", function(snap) {
+    var d = snap.val() || {};
+    document.getElementById("c-addr").value = d.address || "";
+    document.getElementById("c-phone").value = d.phone || "";
+    document.getElementById("c-email").value = d.email || "";
+    document.getElementById("c-time").value = d.timing || "";
+    document.getElementById("c-wa").value = d.whatsapp || "";
+    document.getElementById("c-sub").value = d.sub || "";
+  });
+}
+function saveContact() {
+  db.ref("site/contact").set({
+    address:document.getElementById("c-addr").value,
+    phone:document.getElementById("c-phone").value,
+    email:document.getElementById("c-email").value,
+    timing:document.getElementById("c-time").value,
+    whatsapp:document.getElementById("c-wa").value,
+    sub:document.getElementById("c-sub").value
+  }).then(function() { toast("✅ Contact saved!"); }).catch(function() { toast("❌ Error!", true); });
+}
+
+/* --- NOTICE --- */
+function loadNoticeForm() {
+  db.ref("site/notice").once("value", function(snap) {
+    var d = snap.val() || {};
+    document.getElementById("notice-active").checked = !!d.active;
+    document.getElementById("notice-txt").value = d.text || "";
+  });
+}
+function saveNotice() {
+  db.ref("site/notice").set({active:document.getElementById("notice-active").checked, text:document.getElementById("notice-txt").value})
+    .then(function() { toast("✅ Notice saved!"); }).catch(function() { toast("❌ Error!", true); });
+}
+
+/* --- POPUP --- */
+function loadPopupForm() {
+  db.ref("site/popup").once("value", function(snap) {
+    var d = snap.val() || {};
+    document.getElementById("popup-active").checked = !!d.active;
+    document.getElementById("p-emoji").value = d.emoji || "🎉";
+    document.getElementById("p-title").value = d.title || "";
+    document.getElementById("p-msg").value = d.msg || "";
+  });
+}
+function savePopup() {
+  db.ref("site/popup").set({active:document.getElementById("popup-active").checked, emoji:document.getElementById("p-emoji").value, title:document.getElementById("p-title").value, msg:document.getElementById("p-msg").value})
+    .then(function() { toast("✅ Popup saved!"); }).catch(function() { toast("❌ Error!", true); });
+}
+
+/* --- AI NEWS FETCH --- */
+function fetchAINews() {
+  var topicSel = document.getElementById("ai-topic").value;
+  var topic = topicSel === "custom" ? document.getElementById("ai-custom").value : topicSel;
+  var count = document.getElementById("ai-count").value;
+  var res = document.getElementById("ai-results");
+  if (!topic) { toast("Topic select karo!", true); return; }
+  var btn = document.getElementById("ai-fetch-btn");
+  btn.textContent = "⏳ Generating..."; btn.disabled = true;
+  res.innerHTML = '<div class="aild"><div class="aisp"></div><br>AI news generate kar raha hai...</div>';
+  fetch(AURL, {method:"POST", headers:AHDR, body:JSON.stringify({
+    model:"claude-sonnet-4-20250514", max_tokens:1000,
+    system:"You are an Indian education news curator. Generate realistic news about education/govt jobs in India. Respond ONLY with valid JSON array, no markdown.",
+    messages:[{role:"user",content:'Generate '+count+' news items about: "'+topic+'". Each: {"title":"","description":"2-3 sentences","category":"Education/Sarkari Naukri/Exam/Result/Scholarship","source":"news website name","date":"recent 2025 date like Jan 15 2025","link":"https://realistic-url.com"}. Return ONLY JSON array.'}]
+  })}).then(function(r) { return r.json(); }).then(function(d) {
+    var txt = d.content.map(function(c) { return c.text||""; }).join("").replace(/```json|```/g,"").trim();
+    var news = JSON.parse(txt);
+    aiNewsCache = news;
+    res.innerHTML = news.map(function(n, i) {
+      return '<div class="aiitem" id="aii-'+i+'">' +
+        '<div class="aittl">'+n.title+'</div>' +
+        '<div class="aidesc">'+n.description+'</div>' +
+        '<div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center">' +
+        '<span class="aicat">'+n.category+'</span>' +
+        '<span style="font-size:11px;color:var(--mu)">📰 '+n.source+' | '+n.date+'</span></div>' +
+        '<div style="display:flex;gap:7px;margin-top:9px;flex-wrap:wrap">' +
+        '<button class="btn bgr bsm" data-ai="'+i+'" data-appr="1">✅ Approve</button>' +
+        '<button class="btn bsm" style="background:rgba(139,92,246,.15);color:var(--pu);border:1px solid rgba(139,92,246,.3)" data-ai="'+i+'" data-appr="0">⏳ Pending</button>' +
+        '<button class="btn brd bsm" data-disc="'+i+'">🗑 Discard</button></div></div>';
+    }).join("");
+    res.querySelectorAll("[data-ai]").forEach(function(b) {
+      b.addEventListener("click", function() {
+        var i = parseInt(this.getAttribute("data-ai"));
+        var appr = this.getAttribute("data-appr") === "1";
+        var n = aiNewsCache[i];
+        db.ref("news").push({title:n.title, description:n.description, category:n.category, source:n.source, date:n.date, link:n.link||"", approved:appr, createdAt:Date.now()})
+          .then(function() {
+            var el = document.getElementById("aii-" + i);
+            if (el) el.innerHTML = '<div style="color:var(--gr);font-weight:600;padding:8px">✅ ' + (appr ? "Published!" : "Saved as pending!") + "</div>";
+            toast(appr ? "✅ Published!" : "⏳ Saved as pending!");
+          }).catch(function() { toast("❌ Error!", true); });
+      });
+    });
+    res.querySelectorAll("[data-disc]").forEach(function(b) {
+      b.addEventListener("click", function() {
+        var el = document.getElementById("aii-" + this.getAttribute("data-disc"));
+        if (el) el.remove();
+      });
+    });
+    btn.textContent = "🤖 AI se News Generate karo"; btn.disabled = false;
+  }).catch(function(e) {
+    res.innerHTML = '<div class="aild">❌ Error: ' + (e.message||"Unknown") + "</div>";
+    btn.textContent = "🤖 AI se News Generate karo"; btn.disabled = false;
+  });
+}
+
+/* --- NEWS LIST --- */
+function approveNews(key) {
+  db.ref("news/" + key).update({approved:true}).then(function() { toast("✅ Approved!"); loadNewsList(); }).catch(function() { toast("❌ Error!", true); });
+}
+function deleteNews(key) {
+  if (!confirm("Delete?")) return;
+  db.ref("news/" + key).remove().then(function() { toast("🗑 Deleted!"); loadNewsList(); }).catch(function() { toast("❌ Error!", true); });
+}
+function loadNewsList() {
+  db.ref("news").orderByChild("createdAt").once("value", function(snap) {
+    var tbody = document.getElementById("news-tbody");
+    if (!snap.val()) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--mu);padding:20px">📭 Koi news nahi.</td></tr>'; return; }
+    var rows = [];
+    snap.forEach(function(c) {
+      var n = c.val(), k = c.key;
+      var st = n.approved ? '<span class="sbdg sa">✅ Approved</span>' : '<span class="sbdg sp">⏳ Pending</span>';
+      rows.unshift("<tr><td style=\"max-width:200px\"><strong style=\"color:var(--tx);font-size:12px\">" + n.title + "</strong></td>" +
+        "<td><span style=\"background:rgba(139,92,246,.15);color:var(--pu);padding:2px 8px;border-radius:5px;font-size:10px;font-weight:700\">" + (n.category||"Education") + "</span></td>" +
+        "<td>" + st + "</td><td style=\"color:var(--mu);font-size:11px\">" + (n.date||"") + "</td>" +
+        "<td style=\"display:flex;gap:5px;flex-wrap:wrap\">" +
+        (!n.approved ? '<button class="btn bgr bsm" data-appr="'+k+'">✅</button>' : "") +
+        '<button class="btn brd bsm" data-deln="'+k+'">🗑</button></td></tr>');
+    });
+    tbody.innerHTML = rows.join("");
+    tbody.querySelectorAll("[data-appr]").forEach(function(b) { b.addEventListener("click", function() { approveNews(this.getAttribute("data-appr")); }); });
+    tbody.querySelectorAll("[data-deln]").forEach(function(b) { b.addEventListener("click", function() { deleteNews(this.getAttribute("data-deln")); }); });
+  });
+}
+
+/* --- ADD NEWS --- */
+function addNewsManual() {
+  var title = document.getElementById("an-title").value.trim();
+  if (!title) { toast("Title required!", true); return; }
+  db.ref("news").push({
+    title:title,
+    description:document.getElementById("an-desc").value,
+    category:document.getElementById("an-cat").value,
+    source:document.getElementById("an-src").value || "Manu Cyber",
+    link:document.getElementById("an-link").value,
+    date:document.getElementById("an-date").value,
+    approved:document.getElementById("an-appr").checked,
+    createdAt:Date.now()
+  }).then(function() {
+    toast(document.getElementById("an-appr").checked ? "✅ Published!" : "⏳ Saved as pending!");
+    document.getElementById("an-title").value = "";
+    document.getElementById("an-desc").value = "";
+    document.getElementById("an-link").value = "";
+  }).catch(function() { toast("❌ Error!", true); });
+}
+
+/* --- MESSAGES --- */
+function loadMsgs() {
+  db.ref("messages").orderByChild("timestamp").once("value", function(snap) {
+    var el = document.getElementById("msgs-list");
+    if (!snap.val()) { el.innerHTML = '<div style="color:var(--mu);font-size:13px">📭 Koi message nahi.</div>'; return; }
+    var items = [];
+    snap.forEach(function(c) { items.unshift({key:c.key, val:c.val()}); });
+    el.innerHTML = items.map(function(m) {
+      var v = m.val;
+      return '<div class="mcrd ' + (!v.read ? "unread" : "") + '">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px">' +
+        '<div><div class="mname">'+(v.name||"Unknown")+'</div><div class="mphone">📞 '+(v.phone||"-")+'</div></div>' +
+        '<button class="btn brd bsm" data-mdk="'+m.key+'">🗑</button></div>' +
+        (v.service ? '<span class="msrv">'+v.service+'</span>' : "") +
+        '<div class="mtxt">'+(v.message||"—")+'</div>' +
+        '<div class="mtime">📅 '+(v.timestamp ? new Date(v.timestamp).toLocaleString("hi-IN") : "")+'</div>' +
+        (!v.read ? '<button class="btn bgr bsm" style="margin-top:7px" data-mrk="'+m.key+'">✅ Mark Read</button>' : "") +
+        "</div>";
+    }).join("");
+    el.querySelectorAll("[data-mrk]").forEach(function(b) { b.addEventListener("click", function() { db.ref("messages/"+this.getAttribute("data-mrk")).update({read:true}).then(function() { loadMsgs(); }); }); });
+    el.querySelectorAll("[data-mdk]").forEach(function(b) { b.addEventListener("click", function() { db.ref("messages/"+this.getAttribute("data-mdk")).remove().then(function() { toast("🗑 Deleted!"); loadMsgs(); }); }); });
+  });
+}
+function markAllRead() {
+  db.ref("messages").once("value", function(snap) {
+    var upd = {};
+    snap.forEach(function(c) { upd["messages/"+c.key+"/read"] = true; });
+    db.ref().update(upd).then(function() { toast("✅ All read!"); loadMsgs(); });
+  });
+}
+
+/* --- SUBSCRIBERS --- */
+function loadSubs() {
+  db.ref("subscribers").once("value", function(snap) {
+    var tbody = document.getElementById("subs-tbody");
+    if (!snap.val()) { tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--mu);padding:20px">📭 Koi subscriber nahi.</td></tr>'; return; }
+    var rows = [];
+    snap.forEach(function(c) {
+      var s = c.val(), k = c.key;
+      rows.unshift("<tr><td><span style=\"background:rgba(0,180,216,.12);color:var(--tl);padding:2px 8px;border-radius:5px;font-size:10px;font-weight:700\">"+(s.type||"WhatsApp")+"</span></td>" +
+        "<td style=\"color:var(--tx)\">"+(s.value||"-")+"</td>" +
+        "<td style=\"color:var(--mu);font-size:11px\">"+(s.timestamp ? new Date(s.timestamp).toLocaleDateString("hi-IN") : "")+"</td>" +
+        "<td><button class=\"btn brd bsm\" data-sdk=\""+k+"\">🗑</button></td></tr>");
+    });
+    tbody.innerHTML = rows.join("");
+    tbody.querySelectorAll("[data-sdk]").forEach(function(b) { b.addEventListener("click", function() { db.ref("subscribers/"+this.getAttribute("data-sdk")).remove().then(function() { toast("🗑 Deleted!"); loadSubs(); }); }); });
+  });
+}
+
+})(); /* END IIFE */
+</script>
+</body>
+</html>
